@@ -1,2 +1,8 @@
+/sign-up  https://ultrabot.space/sign-up  301
+/sign-in  https://ultrabot.space/sign-in  301
+/dashboard  https://ultrabot.space/dashboard  301
+/workspace/*  https://ultrabot.space/workspace/:splat  301
+/privacy  https://ultrabot.space/privacy  301
+/termini  https://ultrabot.space/termini  301
 /  /home_page_cupertino_premium/code.html  301
 /security_cupertino_premium/*  /home_page_cupertino_premium/code.html  301
