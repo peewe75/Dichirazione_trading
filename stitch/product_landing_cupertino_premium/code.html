@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product — TaxArchitect</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container-highest": "#e2e2e4","on-tertiary-container": "#fefcff","on-secondary": "#ffffff","surface-container-low": "#f3f3f5","on-secondary-fixed": "#1b1b1d","inverse-primary": "#adc6ff","background": "#f9f9fb","on-surface-variant": "#414755","secondary-fixed": "#e4e2e4","secondary": "#5f5e60","surface-variant": "#e2e2e4","inverse-surface": "#2f3132","surface-bright": "#f9f9fb","error": "#ba1a1a","on-primary": "#ffffff","tertiary-container": "#747479","on-primary-fixed-variant": "#004493","on-error-container": "#93000a","on-primary-fixed": "#001a41","on-tertiary-fixed-variant": "#46464b","surface-dim": "#d9dadc","outline": "#717786","surface": "#f9f9fb","secondary-fixed-dim": "#c8c6c8","outline-variant": "#c1c6d7","on-background": "#1a1c1d","surface-container": "#eeeef0","on-primary-container": "#fefcff","tertiary-fixed-dim": "#c7c6cb","secondary-container": "#e2dfe1","on-surface": "#1a1c1d","on-error": "#ffffff","primary": "#0058bc","error-container": "#ffdad6","tertiary": "#5b5c60","tertiary-fixed": "#e3e2e7","surface-tint": "#005bc1","surface-container-high": "#e8e8ea","on-secondary-container": "#636264","primary-fixed-dim": "#adc6ff","inverse-on-surface": "#f0f0f2","primary-container": "#0070eb","surface-container-lowest": "#ffffff","on-tertiary-fixed": "#1a1b1f","on-tertiary": "#ffffff","primary-fixed": "#d8e2ff","on-secondary-fixed-variant": "#474649"
+        },
+        fontFamily: { "headline": ["Inter","-apple-system","sans-serif"], "body": ["Inter","-apple-system","sans-serif"], "label": ["Inter","-apple-system","sans-serif"] },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+  .glass-effect { backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); }
+  .hero-gradient { background: linear-gradient(145deg, #0058bc 0%, #0070eb 100%); }
+  .editorial-shadow { box-shadow: 0 20px 40px rgba(26,28,29,0.06); }
+
+  @keyframes fadeSlideUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+  .hero-animate { animation: fadeSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+  .delay-1 { animation-delay:0.1s; } .delay-2 { animation-delay:0.22s; } .delay-3 { animation-delay:0.34s; }
+
+  .reveal { opacity:0; transform:translateY(20px); transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  .bento-card { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease; }
+  .bento-card:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 28px 56px rgba(26,28,29,0.11); }
+
+  #mobile-menu { max-height:0; overflow:hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1); }
+  #mobile-menu.open { max-height:400px; }
+  :focus-visible { outline:2px solid #0058bc; outline-offset:3px; border-radius:4px; }
+</style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+
+<!-- ─── Navigation ─── -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm" role="navigation" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center py-4">
+      <a href="../home_page_cupertino_premium/code.html" class="text-xl font-bold tracking-tighter text-slate-900 hover:text-primary transition-colors" aria-label="TaxArchitect Home">TaxArchitect</a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a class="text-primary font-semibold border-b-2 border-primary pb-1 font-sans text-sm tracking-tight" href="../product_landing_cupertino_premium/code.html" aria-current="page">Products</a>
+        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../how_it_works_cupertino_premium/code.html">How it Works</a>
+        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../security_cupertino_premium/code.html">Security</a>
+        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../pricing_cupertino_premium/code.html">Pricing</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="../contact_cupertino_premium/code.html" class="text-slate-600 font-sans text-sm font-medium hover:text-primary transition-colors">Contact</a>
+        <a href="../pricing_cupertino_premium/code.html" class="bg-primary hover:bg-primary-container text-on-primary px-5 py-2.5 rounded-full font-sans text-sm font-medium transition-transform hover:scale-[1.03] active:scale-100">Get Started</a>
+      </div>
+      <button id="hamburger-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container-low transition-colors" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="material-symbols-outlined text-slate-700" id="hamburger-icon">menu</span>
+      </button>
+    </div>
+    <div id="mobile-menu" role="menu" aria-hidden="true">
+      <div class="pb-4 space-y-1 border-t border-slate-100 pt-3">
+        <a href="../home_page_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Home</a>
+        <a href="../product_landing_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-primary font-semibold text-sm bg-primary/5" role="menuitem" aria-current="page">Products</a>
+        <a href="../how_it_works_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">How it Works</a>
+        <a href="../security_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Security</a>
+        <a href="../pricing_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Pricing</a>
+        <a href="../contact_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Contact</a>
+        <div class="pt-2 px-3"><a href="../pricing_cupertino_premium/code.html" class="block w-full text-center bg-primary text-white py-2.5 rounded-full text-sm font-semibold">Get Started</a></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-24">
+
+  <!-- ─── Hero ─── -->
+  <section class="relative px-6 py-20 lg:py-32 overflow-hidden" aria-labelledby="product-heading">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div class="z-10">
+        <span class="hero-animate delay-1 inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase bg-surface-container-high rounded-full text-primary">Engineered for Complexity</span>
+        <h1 id="product-heading" class="hero-animate delay-2 text-5xl lg:text-7xl font-extrabold tracking-tighter text-on-background leading-[1.1] mb-8">
+          The Architectural Standard for Global Tax Reporting.
+        </h1>
+        <p class="hero-animate delay-3 text-lg lg:text-xl text-on-surface-variant mb-10 max-w-xl leading-relaxed">
+          Navigate the labyrinth of international trade regulations with a platform built for precision, scale, and uncompromising compliance.
+        </p>
+        <div class="hero-animate delay-3 flex flex-col sm:flex-row gap-4">
+          <a href="../pricing_cupertino_premium/code.html" class="hero-gradient text-white px-8 py-4 rounded-full font-semibold text-lg hover:scale-[1.02] active:scale-100 transition-transform shadow-xl shadow-primary/20 text-center">Start Free Trial</a>
+          <a href="../how_it_works_cupertino_premium/code.html" class="bg-surface-container-high text-on-surface px-8 py-4 rounded-full font-semibold text-lg hover:bg-surface-container-highest transition-colors text-center">Watch Technical Demo</a>
+        </div>
+      </div>
+      <div class="relative hero-animate delay-2">
+        <div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
+          <img
+            alt="Modern dark mode financial dashboard showing complex data visualizations and tax reporting charts with premium glassmorphism effects"
+            class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv1eJNSfkFYOl31ET0D9Lps8BovdI9LqPWsFPNPuHhlo7c5Xs7yttdEkrdRS-hBMGBKtwhVi6-xuTzx2nrsCWkSKuOI21YDhtC6v3ZjT-qb0ogYmHC_r2VvFnrJ_9qDuWD_FLnVIhlRgiJg1qOybowQjBcgJaIV7UrNB6V-_zryqQxRr7fUPmFoGX2SsBHU62qzZxyHf-n8vyJWlrbCcxgZL4fB9D187VWGkP4JCUDnC9Z3w7MEDXtk-Cn3po9AuEEOprryZ1nQkbV"
+          />
+        </div>
+        <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+        <div class="absolute -top-10 -right-10 w-64 h-64 bg-secondary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3-Phase Process ─── -->
+  <section class="py-24 bg-surface-container-low" aria-labelledby="process-heading">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20 reveal">
+        <h2 id="process-heading" class="text-3xl lg:text-5xl font-bold tracking-tight mb-4 text-on-surface">Precision in Three Acts</h2>
+        <p class="text-on-surface-variant max-w-2xl mx-auto">A seamless orchestration of data, intelligence, and reporting engineered for the modern trader.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bento-card bg-surface-container-lowest p-10 rounded-3xl shadow-sm border border-outline-variant/10 group reveal">
+          <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-primary/15 transition-colors">
+            <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">hub</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">01. Connect</h3>
+          <p class="text-on-surface-variant leading-relaxed">Instantaneous integration with over 500+ global exchanges and banking institutions. Our API-first approach ensures 100% data ingestion accuracy.</p>
+        </div>
+        <div class="bento-card bg-surface-container-lowest p-10 rounded-3xl shadow-sm border border-outline-variant/10 group reveal" style="transition-delay:0.08s">
+          <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-primary/15 transition-colors">
+            <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">sync_alt</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">02. Sync</h3>
+          <p class="text-on-surface-variant leading-relaxed">Advanced reconciliation engines normalize disparate data formats, resolving cost-basis complexities and handling wash-sales automatically.</p>
+        </div>
+        <div class="bento-card bg-surface-container-lowest p-10 rounded-3xl shadow-sm border border-outline-variant/10 group reveal" style="transition-delay:0.16s">
+          <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-8 group-hover:bg-primary/15 transition-colors">
+            <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">description</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">03. Report</h3>
+          <p class="text-on-surface-variant leading-relaxed">Generate jurisdiction-specific tax documents ready for filing. Export premium PDF audits and CSV data compatible with major tax software.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Bento Grid ─── -->
+  <section class="py-24 px-6 max-w-7xl mx-auto" aria-labelledby="benefits-heading">
+    <h2 id="benefits-heading" class="sr-only">Engineered Benefits</h2>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:h-[800px]">
+      <div class="md:col-span-8 bento-card bg-on-surface text-surface rounded-[2.5rem] p-12 relative overflow-hidden flex flex-col justify-end group reveal">
+        <img
+          alt="Abstract blue digital network representing global data connections and high-speed information flow across continents"
+          class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700"
+          loading="lazy"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuClVJVdE3Aoym5C7jVEDa8nsHbehbvW5nIsOJYaFn_SOKkm0TLX6NYZwCtcAGoplLWgf4LMR0lnwlrsnC_OXB5Mkp-qD_yzjRmuXQ5GGvKfiXgk6wJKtVGRGCZbCSll4P09EgcGybEUKjj6H3TN8ELgNYXMsVo2VLN3KoOOZyQVnrA87zEJt8fuWNu-g1TUz-fGwmukBKJCeUFejV_HdHPgs8Zay993NzB3AThgZqRwtCqBXOOTn5MEh91VFaOjXvJE12x9stdkk2wA"
+        />
+        <div class="relative z-10">
+          <span class="text-primary-fixed-dim font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Institutional Scale</span>
+          <h3 class="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">Built for 10M+ Transactions.</h3>
+          <p class="text-surface-container-high max-w-lg text-lg leading-relaxed">Our architecture doesn't just manage data; it masters it. Designed for high-frequency traders and hedge funds requiring millisecond precision.</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-4 bento-card bg-surface-container-high rounded-[2.5rem] p-8 flex flex-col justify-between reveal" style="transition-delay:0.08s">
+        <div>
+          <span class="material-symbols-outlined text-primary text-4xl mb-6" aria-hidden="true">verified_user</span>
+          <h4 class="text-2xl font-bold mb-3 tracking-tight">Military Grade Security</h4>
+          <p class="text-on-surface-variant">SOC2 Type II compliant with end-to-end AES-256 encryption for every data point.</p>
+        </div>
+        <div class="pt-6">
+          <a class="text-primary font-semibold flex items-center gap-2 group hover:gap-3 transition-all" href="../security_cupertino_premium/code.html">
+            Learn about Security <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="md:col-span-4 bento-card bg-primary-container text-on-primary-container rounded-[2.5rem] p-8 flex flex-col justify-between reveal" style="transition-delay:0.16s">
+        <div>
+          <span class="material-symbols-outlined text-on-primary-container text-4xl mb-6" aria-hidden="true">public</span>
+          <h4 class="text-2xl font-bold mb-3 tracking-tight">Multi-Jurisdiction</h4>
+          <p class="opacity-80">Automated reporting for US, UK, EU, and 40+ other tax jurisdictions worldwide.</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-8 bento-card bg-surface-container-lowest rounded-[2.5rem] p-12 border border-outline-variant/20 flex flex-col md:flex-row items-center gap-12 overflow-hidden reveal" style="transition-delay:0.08s">
+        <div class="md:w-1/2">
+          <h3 class="text-3xl font-bold mb-6 tracking-tight">Historical Data Reconstruction.</h3>
+          <p class="text-on-surface-variant text-lg">Lost your exchange access? Our forensic data engine helps reconstruct transaction histories from wallet addresses and public ledgers.</p>
+        </div>
+        <div class="md:w-1/2 bg-surface-container-low p-4 rounded-3xl h-full flex items-center justify-center">
+          <img
+            alt="Overhead view of a minimalist workspace with a tablet displaying financial charts and a clean cup of coffee"
+            class="rounded-2xl shadow-lg w-full h-full object-cover"
+            loading="lazy"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDosnmKcJ9tV3BsNR-zblaHKaIGhraecOOUahh34nQYxhXJKfPxCk8wukc-Ii0R-8V1iNzWkV6m7cB5HVtwCKMFexUM3nbSJ5WaburrsncjntBQGjna0xZXHOUGl6GkX7Xy1cTgMLMkSd8_M114uOYweF6-_rma0-7N_Z0w_VHxCM-kVmu2I719GJVBDjS5aHUqM3kOagqll3SF0Lc8dI7r4MdxIYpaTbyQZwsMgtGkGA9syZxZba0pzwtWSIkbCU4QoMGsJgvHrCf7"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="py-24 px-6 text-center max-w-4xl mx-auto">
+    <div class="bg-surface-container-high rounded-[3rem] p-16 relative overflow-hidden reveal">
+      <div class="relative z-10">
+        <h2 class="text-4xl lg:text-5xl font-black mb-6 tracking-tighter">Ready to architect your tax future?</h2>
+        <p class="text-xl text-on-surface-variant mb-10">Join 50,000+ traders who trust TaxArchitect for their annual reporting.</p>
+        <a href="../pricing_cupertino_premium/code.html" class="inline-block bg-on-surface text-surface px-10 py-5 rounded-full font-bold text-xl hover:scale-105 active:scale-100 transition-transform">Get Started Today</a>
+      </div>
+      <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-20 -mt-20 blur-3xl pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full -ml-20 -mb-20 blur-3xl pointer-events-none" aria-hidden="true"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── Footer ─── -->
+<footer class="w-full border-t border-slate-200 bg-slate-50" aria-label="Site footer">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
+    <div class="space-y-4">
+      <a href="../home_page_cupertino_premium/code.html" class="text-lg font-black text-slate-900 hover:text-primary transition-colors inline-block">TaxArchitect</a>
+      <p class="text-xs text-slate-500 max-w-xs leading-relaxed">© 2024 TaxArchitect. Premium Tax Reporting for Global Traders. Engineered for accuracy and total compliance.</p>
+    </div>
+    <div class="space-y-4">
+      <h4 class="text-xs font-bold uppercase tracking-widest text-on-surface">Resources</h4>
+      <nav class="flex flex-col space-y-2" aria-label="Resources">
+        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../product_landing_cupertino_premium/code.html">RW Forms Guide</a>
+        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../product_landing_cupertino_premium/code.html">RT Reporting</a>
+        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../how_it_works_cupertino_premium/code.html">How it Works</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="text-xs font-bold uppercase tracking-widest text-on-surface">Legal</h4>
+      <nav class="flex flex-col space-y-2" aria-label="Legal">
+        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Privacy Policy</a>
+        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a>
+        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Cookie Settings</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="text-xs font-bold uppercase tracking-widest text-on-surface">Connect</h4>
+      <div class="flex space-x-4">
+        <a href="../contact_cupertino_premium/code.html" class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-colors" aria-label="Contact us by email">
+          <span class="material-symbols-outlined text-[20px]" aria-hidden="true">alternate_email</span>
+        </a>
+        <button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-colors" aria-label="Share TaxArchitect">
+          <span class="material-symbols-outlined text-[20px]" aria-hidden="true">share</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('hamburger-icon');
+  btn.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    menu.setAttribute('aria-hidden', !isOpen);
+    icon.textContent = isOpen ? 'close' : 'menu';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.07 + 's';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

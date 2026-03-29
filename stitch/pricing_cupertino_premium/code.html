@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing — TaxArchitect</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container-highest": "#e2e2e4","on-tertiary-container": "#fefcff","on-secondary": "#ffffff","surface-container-low": "#f3f3f5","on-secondary-fixed": "#1b1b1d","inverse-primary": "#adc6ff","background": "#f9f9fb","on-surface-variant": "#414755","secondary-fixed": "#e4e2e4","secondary": "#5f5e60","surface-variant": "#e2e2e4","inverse-surface": "#2f3132","surface-bright": "#f9f9fb","error": "#ba1a1a","on-primary": "#ffffff","tertiary-container": "#747479","on-primary-fixed-variant": "#004493","on-error-container": "#93000a","on-primary-fixed": "#001a41","on-tertiary-fixed-variant": "#46464b","surface-dim": "#d9dadc","outline": "#717786","surface": "#f9f9fb","secondary-fixed-dim": "#c8c6c8","outline-variant": "#c1c6d7","on-background": "#1a1c1d","surface-container": "#eeeef0","on-primary-container": "#fefcff","tertiary-fixed-dim": "#c7c6cb","secondary-container": "#e2dfe1","on-surface": "#1a1c1d","on-error": "#ffffff","primary": "#0058bc","error-container": "#ffdad6","tertiary": "#5b5c60","tertiary-fixed": "#e3e2e7","surface-tint": "#005bc1","surface-container-high": "#e8e8ea","on-secondary-container": "#636264","primary-fixed-dim": "#adc6ff","inverse-on-surface": "#f0f0f2","primary-container": "#0070eb","surface-container-lowest": "#ffffff","on-tertiary-fixed": "#1a1b1f","on-tertiary": "#ffffff","primary-fixed": "#d8e2ff","on-secondary-fixed-variant": "#474649"
+        },
+        fontFamily: {
+          "headline": ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+          "body": ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+          "label": ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"]
+        },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+  .glass-header { backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); background-color: rgba(249,249,251,0.8); }
+  .hero-gradient { background: linear-gradient(145deg, #0058bc 0%, #0070eb 100%); }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-animate { animation: fadeSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.22s; }
+  .delay-3 { animation-delay: 0.34s; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Pricing card hover */
+  .pricing-card { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease; }
+  .pricing-card:hover { transform: translateY(-6px); }
+
+  /* Toggle */
+  .toggle-track {
+    width: 52px; height: 28px;
+    background: #c1c6d7;
+    border-radius: 9999px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .toggle-track.active { background: #0058bc; }
+  .toggle-thumb {
+    width: 22px; height: 22px;
+    background: white;
+    border-radius: 9999px;
+    position: absolute;
+    top: 3px; left: 3px;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .toggle-track.active .toggle-thumb { transform: translateX(24px); }
+
+  /* Mobile menu */
+  #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1); }
+  #mobile-menu.open { max-height: 400px; }
+
+  :focus-visible { outline: 2px solid #0058bc; outline-offset: 3px; border-radius: 4px; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+<!-- ─── Navigation ─── -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm" role="navigation" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center py-4">
+      <a href="../home_page_cupertino_premium/code.html" class="text-xl font-bold tracking-tighter text-slate-900 hover:text-primary transition-colors" aria-label="TaxArchitect Home">TaxArchitect</a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../home_page_cupertino_premium/code.html">Products</a>
+        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../how_it_works_cupertino_premium/code.html">How it Works</a>
+        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../security_cupertino_premium/code.html">Security</a>
+        <a class="text-primary font-semibold border-b-2 border-primary pb-1 font-sans text-sm tracking-tight" href="../pricing_cupertino_premium/code.html" aria-current="page">Pricing</a>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="../contact_cupertino_premium/code.html" class="text-slate-600 font-sans text-sm font-medium hover:text-primary transition-colors">Contact</a>
+        <a href="../pricing_cupertino_premium/code.html" class="bg-primary text-on-primary px-5 py-2 rounded-full font-sans text-sm font-medium hover:opacity-90 hover:scale-[1.03] active:scale-100 transition-all shadow-sm">Get Started</a>
+      </div>
+      <button id="hamburger-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container-low transition-colors" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="material-symbols-outlined text-slate-700" id="hamburger-icon">menu</span>
+      </button>
+    </div>
+    <div id="mobile-menu" role="menu" aria-hidden="true">
+      <div class="pb-4 space-y-1 border-t border-slate-100 pt-3">
+        <a href="../home_page_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Products</a>
+        <a href="../how_it_works_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">How it Works</a>
+        <a href="../security_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Security</a>
+        <a href="../pricing_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-primary font-semibold text-sm bg-primary/5" role="menuitem" aria-current="page">Pricing</a>
+        <a href="../contact_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Contact</a>
+        <div class="pt-2 px-3">
+          <a href="../pricing_cupertino_premium/code.html" class="block w-full text-center bg-primary text-white py-2.5 rounded-full text-sm font-semibold">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-32 pb-24">
+
+  <!-- ─── Hero ─── -->
+  <section class="max-w-7xl mx-auto px-6 mb-16" aria-labelledby="pricing-heading">
+    <div class="flex flex-col md:flex-row items-end gap-8 mb-10">
+      <div class="flex-1">
+        <span class="hero-animate delay-1 text-xs font-bold tracking-[0.15em] uppercase text-primary mb-4 block">Institutional Grade Reporting</span>
+        <h1 id="pricing-heading" class="hero-animate delay-2 text-5xl md:text-7xl font-bold tracking-tighter text-on-background leading-[0.9] mb-8">
+          Precision costs.<br/>Transparent value.
+        </h1>
+      </div>
+      <div class="flex-1 max-w-md pb-2 hero-animate delay-3">
+        <p class="text-on-surface-variant text-lg leading-relaxed">
+          Scale your global trading operations with automated tax compliance. No hidden fees, just crystalline reporting for the modern asset class.
+        </p>
+      </div>
+    </div>
+
+    <!-- Billing toggle -->
+    <div class="flex items-center gap-4 hero-animate delay-3">
+      <span id="toggle-label-monthly" class="text-sm font-semibold text-on-surface">Monthly</span>
+      <div
+        id="billing-toggle"
+        class="toggle-track active"
+        role="switch"
+        aria-checked="true"
+        aria-label="Toggle billing period"
+        tabindex="0"
+      >
+        <div class="toggle-thumb"></div>
+      </div>
+      <span id="toggle-label-annual" class="text-sm font-semibold text-on-surface">Annual</span>
+      <span id="discount-badge" class="px-3 py-1 bg-primary text-on-primary text-xs font-bold rounded-full">Save 20%</span>
+    </div>
+  </section>
+
+  <!-- ─── Pricing Cards ─── -->
+  <section class="max-w-7xl mx-auto px-6 mb-32" aria-labelledby="plans-heading">
+    <h2 id="plans-heading" class="sr-only">Pricing Plans</h2>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+
+      <!-- Individual Plan -->
+      <div class="md:col-span-4 pricing-card bg-surface-container-low rounded-xl p-10 flex flex-col border border-transparent hover:border-outline-variant/20 hover:bg-surface-container-high reveal">
+        <div class="mb-12">
+          <div class="mb-6 h-12 w-12 rounded-lg bg-surface-container-highest flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary" aria-hidden="true">person</span>
+          </div>
+          <h3 class="text-2xl font-bold tracking-tight mb-2">Individual</h3>
+          <p class="text-on-surface-variant text-sm">For casual traders and hobbyists.</p>
+        </div>
+        <div class="mb-12">
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-bold tracking-tighter price-value" data-monthly="19" data-annual="199">$199</span>
+            <span class="text-on-surface-variant text-sm price-period">/ tax year</span>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-2">Up to 500 transactions</p>
+        </div>
+        <ul class="space-y-4 mb-12 flex-grow" aria-label="Individual plan features">
+          <li class="flex items-center gap-3 text-sm text-on-surface">
+            <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span>
+            Automated exchange syncing
+          </li>
+          <li class="flex items-center gap-3 text-sm text-on-surface">
+            <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span>
+            Standard Form 8949
+          </li>
+          <li class="flex items-center gap-3 text-sm text-on-surface">
+            <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span>
+            DeFi &amp; NFT basic support
+          </li>
+        </ul>
+        <a href="../contact_cupertino_premium/code.html" class="w-full py-4 rounded-full border border-outline text-on-surface font-medium hover:bg-surface-container-highest transition-colors text-center block">Start Filing</a>
+      </div>
+
+      <!-- Professional Plan (Featured) -->
+      <div class="md:col-span-4 pricing-card bg-on-background rounded-xl p-10 flex flex-col text-on-primary-container relative overflow-hidden shadow-2xl scale-105 z-10 reveal" style="transition-delay:0.08s">
+        <div class="absolute top-6 right-6 px-3 py-1 bg-primary rounded-full text-[10px] font-bold uppercase tracking-widest text-on-primary">Most Popular</div>
+        <div class="mb-12">
+          <div class="mb-6 h-12 w-12 rounded-lg bg-primary-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-primary-container" aria-hidden="true">auto_awesome</span>
+          </div>
+          <h3 class="text-2xl font-bold tracking-tight mb-2">Professional</h3>
+          <p class="text-on-primary-container/70 text-sm">For active traders &amp; heavy DeFi users.</p>
+        </div>
+        <div class="mb-12">
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-bold tracking-tighter price-value" data-monthly="49" data-annual="499">$499</span>
+            <span class="text-on-primary-container/70 text-sm price-period">/ tax year</span>
+          </div>
+          <p class="text-xs text-on-primary-container/70 mt-2">Up to 10,000 transactions</p>
+        </div>
+        <ul class="space-y-4 mb-12 flex-grow" aria-label="Professional plan features">
+          <li class="flex items-center gap-3 text-sm">
+            <span class="material-symbols-outlined text-primary-fixed-dim text-lg" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check_circle</span>
+            Advanced cost-basis tracking
+          </li>
+          <li class="flex items-center gap-3 text-sm">
+            <span class="material-symbols-outlined text-primary-fixed-dim text-lg" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check_circle</span>
+            Priority API data ingestion
+          </li>
+          <li class="flex items-center gap-3 text-sm">
+            <span class="material-symbols-outlined text-primary-fixed-dim text-lg" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check_circle</span>
+            Tax Loss Harvesting tools
+          </li>
+          <li class="flex items-center gap-3 text-sm">
+            <span class="material-symbols-outlined text-primary-fixed-dim text-lg" style="font-variation-settings:'FILL' 1;" aria-hidden="true">check_circle</span>
+            CPA audit-ready exports
+          </li>
+        </ul>
+        <a href="../contact_cupertino_premium/code.html" class="w-full py-4 rounded-full hero-gradient text-on-primary font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-100 transition-all text-center block">Get Professional</a>
+      </div>
+
+      <!-- Institutional Plan -->
+      <div class="md:col-span-4 pricing-card bg-surface-container-low rounded-xl p-10 flex flex-col border border-transparent hover:border-outline-variant/20 hover:bg-surface-container-high reveal" style="transition-delay:0.16s">
+        <div class="mb-12">
+          <div class="mb-6 h-12 w-12 rounded-lg bg-surface-container-highest flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary" aria-hidden="true">corporate_fare</span>
+          </div>
+          <h3 class="text-2xl font-bold tracking-tight mb-2">Institutional</h3>
+          <p class="text-on-surface-variant text-sm">For funds, firms, and high-frequency traders.</p>
+        </div>
+        <div class="mb-12">
+          <div class="flex items-baseline gap-1">
+            <span class="text-4xl font-bold tracking-tighter">Custom</span>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-2">Unlimited transactions &amp; nodes</p>
+        </div>
+        <ul class="space-y-4 mb-12 flex-grow" aria-label="Institutional plan features">
+          <li class="flex items-center gap-3 text-sm text-on-surface">
+            <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span>
+            Dedicated account manager
+          </li>
+          <li class="flex items-center gap-3 text-sm text-on-surface">
+            <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span>
+            White-label client portals
+          </li>
+          <li class="flex items-center gap-3 text-sm text-on-surface">
+            <span class="material-symbols-outlined text-primary text-lg" aria-hidden="true">check_circle</span>
+            Custom blockchain indexing
+          </li>
+        </ul>
+        <a href="../contact_cupertino_premium/code.html" class="w-full py-4 rounded-full border border-primary text-primary font-medium hover:bg-primary/5 transition-colors text-center block">Request Quote</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Editorial CTA Section ─── -->
+  <section class="max-w-7xl mx-auto px-6 mb-32">
+    <div class="relative bg-surface-container-lowest rounded-[2rem] overflow-hidden p-8 md:p-20 border border-outline-variant/10 reveal">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-4xl font-bold tracking-tighter mb-6 leading-tight">Complex portfolios require architectural precision.</h2>
+          <p class="text-on-surface-variant mb-10 text-lg">
+            We don't just count trades; we reconstruct your financial history. Our proprietary engine handles multi-chain bridges, liquidity pools, and complex derivative mapping that other software misses.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary" aria-hidden="true">verified_user</span>
+              <div>
+                <div class="text-sm font-bold">Audit Guaranteed</div>
+                <div class="text-xs text-on-surface-variant">Standard on all plans</div>
+              </div>
+            </div>
+            <div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-4">
+              <span class="material-symbols-outlined text-primary" aria-hidden="true">history</span>
+              <div>
+                <div class="text-sm font-bold">10-Year Backlog</div>
+                <div class="text-xs text-on-surface-variant">Full historical indexing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative aspect-square rounded-2xl overflow-hidden group">
+          <img
+            alt="Modern minimalist data visualization on a screen in a bright high-end office with soft architectural shadows and premium feel"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1WYMaDjo5ZXU_0n_NT1L2yqCJIIAwhI5HjHPiXngJAECXb1vF3Cij2O2uRPC0S1oDgBDcN5iDeB_UlXR3CBTURbzMaoQAXwkE2JVhkoCu4ktJW5A2CSrWNdD33x_SaySHLZaXKj0j_jFR5odATvB4jamnZosPlTqhOrHgE4OjH9HaXTk8iOpXX-wHFFW-g5l0OypnJ1sEUmYDyvGRuuakAXUiZgUsmJVv_kK6b6RC4zTwKg27-4xr0vIOFPiRrcu1QyzUd-zB83gd"
+          />
+          <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="max-w-3xl mx-auto px-6 mb-32" aria-labelledby="faq-heading">
+    <h2 id="faq-heading" class="text-3xl font-bold tracking-tighter mb-12 text-center reveal">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+
+      <div class="faq-item open bg-surface-container-low p-8 rounded-2xl reveal">
+        <button class="faq-trigger w-full flex justify-between items-center text-left focus-visible:outline-none" aria-expanded="true" aria-controls="pfaq-1">
+          <h4 class="font-bold text-lg pr-4">How do you count transactions?</h4>
+          <span class="material-symbols-outlined faq-icon flex-shrink-0 text-primary" aria-hidden="true">expand_more</span>
+        </button>
+        <div id="pfaq-1" class="faq-answer" role="region">
+          <p class="mt-4 text-on-surface-variant leading-relaxed">We count any taxable event, including trades, swaps, income, and mining rewards. Internal transfers between your own wallets are detected and filtered out for free.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface-container-low p-8 rounded-2xl reveal">
+        <button class="faq-trigger w-full flex justify-between items-center text-left focus-visible:outline-none" aria-expanded="false" aria-controls="pfaq-2">
+          <h4 class="font-bold text-lg pr-4">Can I upgrade mid-year?</h4>
+          <span class="material-symbols-outlined faq-icon flex-shrink-0 text-primary" aria-hidden="true">expand_more</span>
+        </button>
+        <div id="pfaq-2" class="faq-answer" role="region">
+          <p class="mt-4 text-on-surface-variant leading-relaxed">Yes, you can upgrade at any time. You'll only pay the prorated difference between your current plan and the new one.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-surface-container-low p-8 rounded-2xl reveal">
+        <button class="faq-trigger w-full flex justify-between items-center text-left focus-visible:outline-none" aria-expanded="false" aria-controls="pfaq-3">
+          <h4 class="font-bold text-lg pr-4">Is my data secure?</h4>
+          <span class="material-symbols-outlined faq-icon flex-shrink-0 text-primary" aria-hidden="true">expand_more</span>
+        </button>
+        <div id="pfaq-3" class="faq-answer" role="region">
+          <p class="mt-4 text-on-surface-variant leading-relaxed">We use SOC2 Type II compliant infrastructure and never store your private keys. All API connections are read-only for tax purposes only.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── Footer ─── -->
+<footer class="w-full border-t border-slate-200 bg-slate-50" aria-label="Site footer">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
+    <div class="col-span-1">
+      <a href="../home_page_cupertino_premium/code.html" class="text-lg font-black text-slate-900 hover:text-primary transition-colors mb-4 inline-block">TaxArchitect</a>
+      <p class="text-xs text-slate-500 mb-6 leading-loose">The premium standard for digital asset tax compliance. Trusted by institutions and high-net-worth individuals globally.</p>
+    </div>
+    <div>
+      <h5 class="text-slate-900 font-medium text-xs uppercase tracking-widest mb-6">Product</h5>
+      <ul class="space-y-4">
+        <li><a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../product_landing_cupertino_premium/code.html">RW Forms Guide</a></li>
+        <li><a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../product_landing_cupertino_premium/code.html">RT Reporting</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-slate-900 font-medium text-xs uppercase tracking-widest mb-6">Support</h5>
+      <ul class="space-y-4">
+        <li><a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../contact_cupertino_premium/code.html">Contact Support</a></li>
+        <li><a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../how_it_works_cupertino_premium/code.html">How it Works</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-slate-900 font-medium text-xs uppercase tracking-widest mb-6">Legal</h5>
+      <ul class="space-y-4">
+        <li><a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Privacy Policy</a></li>
+        <li><a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a></li>
+        <li><a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Cookie Settings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-8 py-6 border-t border-slate-200/50">
+    <p class="text-xs text-slate-500">© 2024 TaxArchitect. Premium Tax Reporting for Global Traders.</p>
+  </div>
+</footer>
+
+<script>
+  // ── Mobile menu ──
+  const btn = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('hamburger-icon');
+  btn.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    menu.setAttribute('aria-hidden', !isOpen);
+    icon.textContent = isOpen ? 'close' : 'menu';
+  });
+
+  // ── Billing toggle ──
+  const toggle = document.getElementById('billing-toggle');
+  const badge  = document.getElementById('discount-badge');
+  let isAnnual = true;
+
+  function updatePrices() {
+    document.querySelectorAll('.price-value').forEach(el => {
+      const v = isAnnual ? el.dataset.annual : el.dataset.monthly;
+      if (v) el.textContent = '$' + v;
+    });
+    document.querySelectorAll('.price-period').forEach(el => {
+      el.textContent = isAnnual ? '/ tax year' : '/ month';
+    });
+    badge.style.opacity = isAnnual ? '1' : '0.4';
+  }
+
+  toggle.addEventListener('click', () => {
+    isAnnual = !isAnnual;
+    toggle.classList.toggle('active', isAnnual);
+    toggle.setAttribute('aria-checked', isAnnual);
+    updatePrices();
+  });
+  toggle.addEventListener('keydown', e => {
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle.click(); }
+  });
+
+  // ── FAQ accordion ──
+  document.querySelectorAll('.faq-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ── Scroll reveal ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.07 + 's';
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease; opacity: 0; }
+  .faq-item.open .faq-answer { max-height: 300px; opacity: 1; }
+  .faq-item.open .faq-icon { transform: rotate(180deg); }
+  .faq-icon { transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); }
+</style>
+</body>
+</html>
