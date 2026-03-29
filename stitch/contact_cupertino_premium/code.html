@@ -1,334 +1,243 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="it" class="light">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contact TaxArchitect | Premium Support</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "surface-container-highest": "#e2e2e4","on-tertiary-container": "#fefcff","on-secondary": "#ffffff","surface-container-low": "#f3f3f5","on-secondary-fixed": "#1b1b1d","inverse-primary": "#adc6ff","background": "#f9f9fb","on-surface-variant": "#414755","secondary-fixed": "#e4e2e4","secondary": "#5f5e60","surface-variant": "#e2e2e4","inverse-surface": "#2f3132","surface-bright": "#f9f9fb","error": "#ba1a1a","on-primary": "#ffffff","tertiary-container": "#747479","on-primary-fixed-variant": "#004493","on-error-container": "#93000a","on-primary-fixed": "#001a41","on-tertiary-fixed-variant": "#46464b","surface-dim": "#d9dadc","outline": "#717786","surface": "#f9f9fb","secondary-fixed-dim": "#c8c6c8","outline-variant": "#c1c6d7","on-background": "#1a1c1d","surface-container": "#eeeef0","on-primary-container": "#fefcff","tertiary-fixed-dim": "#c7c6cb","secondary-container": "#e2dfe1","on-surface": "#1a1c1d","on-error": "#ffffff","primary": "#0058bc","error-container": "#ffdad6","tertiary": "#5b5c60","tertiary-fixed": "#e3e2e7","surface-tint": "#005bc1","surface-container-high": "#e8e8ea","on-secondary-container": "#636264","primary-fixed-dim": "#adc6ff","inverse-on-surface": "#f0f0f2","primary-container": "#0070eb","surface-container-lowest": "#ffffff","on-tertiary-fixed": "#1a1b1f","on-tertiary": "#ffffff","primary-fixed": "#d8e2ff","on-secondary-fixed-variant": "#474649"
-        },
-        fontFamily: { "headline": ["Inter","-apple-system","sans-serif"], "body": ["Inter","-apple-system","sans-serif"], "label": ["Inter","-apple-system","sans-serif"] },
-        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-      },
-    },
-  }
-</script>
-<style>
-  html { scroll-behavior: smooth; }
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
-  .glass-effect { backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); }
-  .ink-gradient { background: linear-gradient(145deg, #0058bc 0%, #0070eb 100%); }
-
-  @keyframes fadeSlideUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-  .hero-animate { animation: fadeSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) both; }
-  .delay-1 { animation-delay:0.1s; } .delay-2 { animation-delay:0.22s; } .delay-3 { animation-delay:0.34s; }
-
-  .reveal { opacity:0; transform:translateY(20px); transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1); }
-  .reveal.visible { opacity:1; transform:translateY(0); }
-
-  /* Form input focus ring */
-  input:focus, select:focus, textarea:focus { outline: 2px solid #0058bc; outline-offset: 0; box-shadow: none; }
-
-  /* Submit button */
-  .submit-btn { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease; }
-  .submit-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 32px rgba(0,88,188,0.25); }
-  .submit-btn:active { transform: scale(0.98); }
-
-  /* Success message */
-  #form-success { display: none; }
-  #form-success.visible { display: flex; }
-
-  #mobile-menu { max-height:0; overflow:hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1); }
-  #mobile-menu.open { max-height:400px; }
-  :focus-visible { outline:2px solid #0058bc; outline-offset:3px; border-radius:4px; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistenza | Trading Fiscale in BCS AI Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", sans-serif; background: #f7f7f5; color: #111827; }
+    .hero-gradient { background: linear-gradient(145deg, #0f766e 0%, #10b981 100%); }
+    .soft-shadow { box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08); }
+    .glass { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    #mobile-menu.open { max-height: 420px; }
+    #form-success { display: none; }
+    #form-success.visible { display: flex; }
+  </style>
 </head>
-<body class="bg-background text-on-background antialiased font-body">
-
-<!-- ─── Navigation ─── -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm" role="navigation" aria-label="Main navigation">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex justify-between items-center py-4">
-      <a href="../home_page_cupertino_premium/code.html" class="text-xl font-bold tracking-tighter text-slate-900 hover:text-primary transition-colors" aria-label="TaxArchitect Home">TaxArchitect</a>
-      <div class="hidden md:flex items-center space-x-8">
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../home_page_cupertino_premium/code.html">Products</a>
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../how_it_works_cupertino_premium/code.html">How it Works</a>
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../security_cupertino_premium/code.html">Security</a>
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../pricing_cupertino_premium/code.html">Pricing</a>
+<body class="selection:bg-emerald-200 selection:text-slate-900">
+  <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/50 bg-white/75 glass">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="../home_page_cupertino_premium/code.html" class="leading-none" aria-label="Trading Fiscale Home">
+        <span class="block text-xl font-black tracking-tight text-slate-900">Trading Fiscale</span>
+        <span class="block pt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">in BCS AI Suite</span>
+      </a>
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="../home_page_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Panoramica</a>
+        <a href="../product_landing_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Prodotto</a>
+        <a href="../how_it_works_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Come funziona</a>
+        <a href="../security_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Sicurezza</a>
+        <a href="../pricing_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Prezzi</a>
       </div>
-      <div class="flex items-center space-x-4">
-        <a href="../contact_cupertino_premium/code.html" class="text-primary font-semibold border-b-2 border-primary pb-1 font-sans text-sm tracking-tight hidden md:block" aria-current="page">Contact</a>
-        <a href="../pricing_cupertino_premium/code.html" class="bg-primary hover:opacity-80 transition-all duration-300 text-white px-5 py-2 rounded-full font-sans text-sm font-medium hover:scale-[1.03] active:scale-100 hidden md:block">Get Started</a>
-        <button id="hamburger-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container-low transition-colors" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
-          <span class="material-symbols-outlined text-slate-700" id="hamburger-icon">menu</span>
-        </button>
+      <div class="hidden items-center gap-4 md:flex">
+        <a href="../contact_cupertino_premium/code.html" class="border-b-2 border-emerald-600 pb-1 text-sm font-semibold text-emerald-700">Assistenza</a>
+        <a href="/sign-up?redirect_url=%2Fdashboard" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]">Registrati</a>
+      </div>
+      <button id="menu-button" class="rounded-full p-2 text-slate-700 md:hidden" aria-label="Apri menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden">
+      <div class="space-y-1 border-t border-slate-200 px-6 pb-4 pt-3">
+        <a href="../home_page_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Panoramica</a>
+        <a href="../product_landing_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Prodotto</a>
+        <a href="../how_it_works_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Come funziona</a>
+        <a href="../security_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Sicurezza</a>
+        <a href="../pricing_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Prezzi</a>
+        <a href="../contact_cupertino_premium/code.html" class="block rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">Assistenza</a>
+        <a href="/sign-up?redirect_url=%2Fdashboard" class="mt-2 block rounded-full bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white">Registrati</a>
       </div>
     </div>
-    <div id="mobile-menu" role="menu" aria-hidden="true">
-      <div class="pb-4 space-y-1 border-t border-slate-100 pt-3">
-        <a href="../home_page_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Products</a>
-        <a href="../how_it_works_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">How it Works</a>
-        <a href="../security_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Security</a>
-        <a href="../pricing_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Pricing</a>
-        <a href="../contact_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-primary font-semibold text-sm bg-primary/5" role="menuitem" aria-current="page">Contact</a>
-        <div class="pt-2 px-3"><a href="../pricing_cupertino_premium/code.html" class="block w-full text-center bg-primary text-white py-2.5 rounded-full text-sm font-semibold">Get Started</a></div>
-      </div>
-    </div>
-  </div>
-</nav>
+  </nav>
 
-<main class="pt-32 pb-20 px-6">
-  <div class="max-w-7xl mx-auto">
+  <main class="pt-24 px-6 pb-20">
+    <div class="mx-auto max-w-7xl">
+      <section class="pb-14 pt-8">
+        <div class="max-w-4xl">
+          <span class="inline-flex rounded-full bg-emerald-100 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-800">Supporto e onboarding</span>
+          <h1 class="mt-8 text-5xl font-black tracking-tight text-slate-900 md:text-7xl md:leading-[0.95]">Ti aiutiamo a entrare nel flusso giusto.</h1>
+          <p class="mt-8 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">Se hai dubbi su registrazione, dashboard, attivazione dell'app o uso di Trading Fiscale, questa pagina e il tuo punto di partenza dentro BCS AI Suite.</p>
+        </div>
+      </section>
 
-    <!-- ─── Header ─── -->
-    <div class="mb-20">
-      <span class="hero-animate delay-1 text-primary font-bold tracking-[0.05em] text-xs uppercase mb-4 block">Concierge Support</span>
-      <h1 class="hero-animate delay-2 text-5xl md:text-7xl font-extrabold tracking-tighter text-on-background mb-6 leading-[1.1]">
-        How can our <br/>experts assist you?
-      </h1>
-      <p class="hero-animate delay-3 text-xl text-secondary max-w-2xl leading-relaxed">
-        Personalized tax architectural services for high-net-worth global traders. Our team is ready to curate your reporting experience.
-      </p>
-    </div>
+      <section class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div class="reveal rounded-[2.25rem] bg-white p-8 soft-shadow md:p-10">
+          <h2 class="text-3xl font-black tracking-tight text-slate-900">Scrivici dal contesto giusto.</h2>
+          <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">Usa il form per richieste su accesso, acquisto dell'app in dashboard, gestione del piano o uso del workspace Trading Fiscale. Il copy resta coerente con il prodotto: supporto operativo, non promesse commerciali generiche.</p>
 
-    <!-- ─── Main Layout ─── -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-      <!-- Contact Form -->
-      <div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-[0_20px_40px_rgba(26,28,29,0.04)] reveal">
-        <h2 class="text-2xl font-bold tracking-tight mb-8">Send a Message</h2>
-
-        <!-- Success message -->
-        <div id="form-success" class="mb-8 items-center gap-4 p-6 bg-green-50 border border-green-200 rounded-xl" role="alert" aria-live="polite">
-          <span class="material-symbols-outlined text-green-600 text-3xl" aria-hidden="true">check_circle</span>
-          <div>
-            <p class="font-bold text-green-800">Message sent successfully!</p>
-            <p class="text-sm text-green-700">Our team will get back to you within 24 hours.</p>
+          <div id="form-success" class="mt-8 items-start gap-4 rounded-[1.5rem] border border-emerald-200 bg-emerald-50 p-5" role="alert" aria-live="polite">
+            <span class="material-symbols-outlined text-3xl text-emerald-700">check_circle</span>
+            <div>
+              <p class="font-bold text-emerald-900">Messaggio inviato.</p>
+              <p class="mt-1 text-sm leading-6 text-emerald-800">Abbiamo registrato la richiesta. Il prossimo passaggio e aiutarti a tornare nel flusso corretto della suite.</p>
+            </div>
           </div>
+
+          <form id="contact-form" class="mt-8 space-y-6" novalidate>
+            <div class="grid gap-6 md:grid-cols-2">
+              <label class="block">
+                <span class="mb-2 block text-sm font-semibold text-slate-900">Nome</span>
+                <input type="text" name="name" placeholder="Come ti chiami" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white" required />
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-sm font-semibold text-slate-900">Email</span>
+                <input type="email" name="email" placeholder="nome@dominio.it" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white" required />
+              </label>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2">
+              <label class="block">
+                <span class="mb-2 block text-sm font-semibold text-slate-900">Tema della richiesta</span>
+                <select name="topic" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white">
+                  <option>Registrazione e accesso</option>
+                  <option>Dashboard e acquisto app</option>
+                  <option>Uso di Trading Fiscale</option>
+                  <option>Piani e limiti</option>
+                  <option>Altro</option>
+                </select>
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-sm font-semibold text-slate-900">Sei gia dentro la suite?</span>
+                <select name="status" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white">
+                  <option>No, devo ancora registrarmi</option>
+                  <option>Si, ma non vedo l'app</option>
+                  <option>Si, sto usando il workspace</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="block">
+              <span class="mb-2 block text-sm font-semibold text-slate-900">Messaggio</span>
+              <textarea name="message" rows="7" placeholder="Raccontaci dove ti sei fermato: registrazione, dashboard, attivazione del piano oppure uso del report MetaTrader 4/5." class="w-full rounded-[1.5rem] border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-7 text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white" required></textarea>
+            </label>
+
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <p class="max-w-xl text-sm leading-6 text-slate-500">Microcopy consigliato: se non hai ancora un account, registrati prima. Se invece sei gia nella suite, indica il punto esatto del flusso dove hai bisogno di supporto.</p>
+              <button type="submit" class="hero-gradient inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold text-white soft-shadow">Invia richiesta</button>
+            </div>
+          </form>
         </div>
 
-        <form id="contact-form" class="space-y-8" novalidate>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="space-y-2">
-              <label class="text-xs font-bold uppercase tracking-wider text-outline" for="full-name">Full Name</label>
-              <input
-                id="full-name"
-                class="w-full bg-surface-container-low border-none rounded-lg transition-all py-4 px-5 placeholder:text-outline-variant"
-                placeholder="Julian Vane"
-                type="text"
-                autocomplete="name"
-                required
-              />
+        <div class="space-y-6">
+          <article class="reveal rounded-[2.25rem] bg-slate-900 p-8 text-white soft-shadow md:p-10">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">Percorso consigliato</p>
+            <h2 class="mt-4 text-3xl font-black tracking-tight">Prima controlla questi passaggi.</h2>
+            <div class="mt-8 space-y-5 text-sm leading-7 text-slate-300">
+              <p class="flex gap-3"><span class="material-symbols-outlined mt-1 text-emerald-300">looks_one</span><span>Registrati oppure accedi con il flusso unificato di BCS AI Suite.</span></p>
+              <p class="flex gap-3"><span class="material-symbols-outlined mt-1 text-emerald-300">looks_two</span><span>Apri la dashboard personale per gestire acquisti e app disponibili.</span></p>
+              <p class="flex gap-3"><span class="material-symbols-outlined mt-1 text-emerald-300">looks_3</span><span>Attiva Trading Fiscale e apri il workspace dedicato prima di chiedere assistenza sull'operativita.</span></p>
             </div>
-            <div class="space-y-2">
-              <label class="text-xs font-bold uppercase tracking-wider text-outline" for="email">Email Address</label>
-              <input
-                id="email"
-                class="w-full bg-surface-container-low border-none rounded-lg transition-all py-4 px-5 placeholder:text-outline-variant"
-                placeholder="julian@example.com"
-                type="email"
-                autocomplete="email"
-                required
-              />
+            <div class="mt-8 flex flex-col gap-3">
+              <a href="/sign-up?redirect_url=%2Fdashboard" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900">Registrati ed entra in dashboard</a>
+              <a href="/sign-in?redirect_url=%2Fdashboard" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white">Ho gia un account</a>
             </div>
-          </div>
-          <div class="space-y-2">
-            <label class="text-xs font-bold uppercase tracking-wider text-outline" for="subject">Subject of Inquiry</label>
-            <select
-              id="subject"
-              class="w-full bg-surface-container-low border-none rounded-lg transition-all py-4 px-5 appearance-none"
-            >
-              <option>General Consultation</option>
-              <option>Premium Trade Analysis</option>
-              <option>Tax Reporting Support</option>
-              <option>Enterprise Solutions</option>
-            </select>
-          </div>
-          <div class="space-y-2">
-            <label class="text-xs font-bold uppercase tracking-wider text-outline" for="message">Message</label>
-            <textarea
-              id="message"
-              class="w-full bg-surface-container-low border-none rounded-lg transition-all py-4 px-5 placeholder:text-outline-variant resize-none"
-              placeholder="Describe your tax architecture needs..."
-              rows="5"
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            class="submit-btn ink-gradient text-white w-full md:w-auto px-10 py-4 rounded-full font-bold tracking-tight text-lg"
-          >
-            Submit Inquiry
-          </button>
-        </form>
-      </div>
+          </article>
 
-      <!-- Right Sidebar -->
-      <div class="lg:col-span-5 space-y-8">
-
-        <!-- Direct Channels -->
-        <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/15 reveal">
-          <h3 class="text-xl font-bold tracking-tight mb-6">Direct Channels</h3>
-          <div class="space-y-6">
-            <div class="flex items-start gap-4 group">
-              <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
-                <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300" aria-hidden="true">mail</span>
-              </div>
-              <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Email</p>
-                <a href="mailto:concierge@taxarchitect.com" class="font-semibold hover:text-primary transition-colors">concierge@taxarchitect.com</a>
-              </div>
-            </div>
-            <div class="flex items-start gap-4 group">
-              <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
-                <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300" aria-hidden="true">call</span>
-              </div>
-              <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-outline mb-1">Phone</p>
-                <a href="tel:+18008292724" class="font-semibold hover:text-primary transition-colors">+1 (800) TAX-ARCH</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Self-Service Resources -->
-        <div class="bg-on-surface text-surface-container-lowest rounded-xl p-8 overflow-hidden relative reveal" style="transition-delay:0.08s">
-          <div class="relative z-10">
-            <h3 class="text-xl font-bold tracking-tight mb-4">Self-Service Resources</h3>
-            <p class="text-surface-container-highest/70 text-sm mb-6 leading-relaxed">
-              Access our RW Forms Guide and RT Reporting protocols for immediate assistance.
-            </p>
-            <div class="space-y-3">
-              <a class="flex items-center justify-between p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors group" href="../product_landing_cupertino_premium/code.html">
-                <span class="font-medium">Documentation Center</span>
-                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+          <article class="reveal rounded-[2.25rem] bg-white p-8 soft-shadow md:p-10">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Risorse utili</p>
+            <div class="mt-6 space-y-4">
+              <a href="../how_it_works_cupertino_premium/code.html" class="flex items-center justify-between rounded-[1.5rem] bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-900 transition hover:bg-emerald-50">
+                <span>Vedi il flusso operativo</span>
+                <span class="material-symbols-outlined text-emerald-700">arrow_forward</span>
               </a>
-              <a class="flex items-center justify-between p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors group" href="../how_it_works_cupertino_premium/code.html">
-                <span class="font-medium">Global Trader FAQ</span>
-                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+              <a href="../product_landing_cupertino_premium/code.html" class="flex items-center justify-between rounded-[1.5rem] bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-900 transition hover:bg-emerald-50">
+                <span>Controlla cosa fa l'app</span>
+                <span class="material-symbols-outlined text-emerald-700">arrow_forward</span>
+              </a>
+              <a href="../pricing_cupertino_premium/code.html" class="flex items-center justify-between rounded-[1.5rem] bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-900 transition hover:bg-emerald-50">
+                <span>Rivedi piani e limiti</span>
+                <span class="material-symbols-outlined text-emerald-700">arrow_forward</span>
               </a>
             </div>
-          </div>
-          <div class="absolute -right-10 -bottom-10 opacity-20 rotate-12 pointer-events-none" aria-hidden="true">
-            <span class="material-symbols-outlined text-[160px]" style="font-variation-settings:'FILL' 1;">description</span>
+          </article>
+
+          <article class="reveal rounded-[2.25rem] bg-emerald-50 p-8 soft-shadow md:p-10">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Trust copy</p>
+            <h2 class="mt-4 text-2xl font-black tracking-tight text-slate-900">Assistenza orientata al prodotto reale.</h2>
+            <p class="mt-4 text-base leading-7 text-slate-600">La pagina non promette concierge globale, desk premium o sedi estere. Aiuta l'utente a capire registrazione, dashboard, acquisto del modulo e uso di Trading Fiscale dentro la suite.</p>
+            <div class="mt-6 space-y-3 text-sm text-slate-700">
+              <a href="/dashboard" class="block font-semibold hover:text-slate-900">Apri dashboard</a>
+              <a href="/workspace/trading" class="block font-semibold hover:text-slate-900">Vai al workspace Trading</a>
+              <a href="/privacy" class="block font-semibold hover:text-slate-900">Privacy e dati</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="pt-20">
+        <div class="hero-gradient overflow-hidden rounded-[2.75rem] px-8 py-14 text-center text-white soft-shadow md:px-16 md:py-20">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-100">Call to action</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight md:text-6xl">Se il dubbio e il percorso, partiamo dalla dashboard.</h2>
+          <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-emerald-50">Trading Fiscale vive dentro BCS AI Suite. Registrati, entra nel tuo spazio personale e usa l'assistenza quando ti serve una mano su un passaggio reale.</p>
+          <div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <a href="/sign-up?redirect_url=%2Fdashboard" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-semibold text-slate-900">Registrati ora</a>
+            <a href="../how_it_works_cupertino_premium/code.html" class="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-4 text-lg font-semibold text-white">Scopri come funziona</a>
           </div>
         </div>
+      </section>
+    </div>
+  </main>
 
-        <!-- Location -->
-        <div class="h-48 rounded-xl bg-surface-container-high relative overflow-hidden group reveal" style="transition-delay:0.16s">
-          <img
-            class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
-            loading="lazy"
-            alt="Abstract architectural building with clean white lines and glass panels under a clear blue sky"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-C2__pn5UxNw9XyXC9QwRUbSYNa3ArO--o9Wg1pqYCLZtZKNugsShK9szCVl1LDzYpxODkyrWQjRiwyWMkf2ZCSKOThQ5w7Xm8gmiRJn7JwUKcGv6BYnUG4xc3wVFzsW5nsWHxuhevkFp_cqh0swjfJ9F9v1LjBn4CWz-igoj7M-iBYRRZg6fov5u5iWSUZQnD82CXiVLwDRmP-eLL2d_F8Y9O_f2f0wT7Jlbdq3QbWC4Xem8pZoKlew2cvHLk255wechqhqbU2hO"
-          />
-          <div class="absolute inset-0 p-6 flex flex-col justify-end bg-gradient-to-t from-background/80 to-transparent">
-            <p class="text-xs font-bold uppercase tracking-wider text-primary">Headquarters</p>
-            <p class="font-bold text-on-surface">Financial District, New York</p>
-          </div>
+  <footer class="border-t border-slate-200 bg-white px-6 py-14">
+    <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <p class="text-xl font-black tracking-tight text-slate-900">Trading Fiscale</p>
+        <p class="mt-3 max-w-md text-sm leading-7 text-slate-600">Modulo di BCS AI Suite dedicato a chi parte da un export MetaTrader 4/5 e vuole arrivare a un output fiscale piu ordinato, con un funnel coerente anche lato supporto.</p>
+        <p class="mt-4 text-xs text-slate-500">&copy; 2026 Trading Fiscale in BCS AI Suite.</p>
+      </div>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Prodotto</p>
+        <div class="mt-4 space-y-3 text-sm text-slate-600">
+          <a href="../product_landing_cupertino_premium/code.html" class="block hover:text-slate-900">Funzionalita</a>
+          <a href="../how_it_works_cupertino_premium/code.html" class="block hover:text-slate-900">Come funziona</a>
+          <a href="../pricing_cupertino_premium/code.html" class="block hover:text-slate-900">Piani e prezzi</a>
         </div>
-
-      </div>
-    </div>
-
-    <!-- ─── Footer Section Links ─── -->
-    <div class="mt-32 pt-16 border-t border-surface-container-highest grid grid-cols-2 md:grid-cols-4 gap-12 reveal">
-      <div>
-        <h4 class="text-xs font-bold uppercase tracking-widest text-outline mb-6">Service Pillars</h4>
-        <ul class="space-y-4">
-          <li><a class="text-sm text-secondary hover:text-primary transition-colors" href="../product_landing_cupertino_premium/code.html">Tax Strategy</a></li>
-          <li><a class="text-sm text-secondary hover:text-primary transition-colors" href="../product_landing_cupertino_premium/code.html">Trade Auditing</a></li>
-          <li><a class="text-sm text-secondary hover:text-primary transition-colors" href="../pricing_cupertino_premium/code.html">Entity Structuring</a></li>
-        </ul>
       </div>
       <div>
-        <h4 class="text-xs font-bold uppercase tracking-widest text-outline mb-6">Resources</h4>
-        <ul class="space-y-4">
-          <li><a class="text-sm text-secondary hover:text-primary transition-colors" href="../product_landing_cupertino_premium/code.html">RW Forms Guide</a></li>
-          <li><a class="text-sm text-secondary hover:text-primary transition-colors" href="../product_landing_cupertino_premium/code.html">RT Reporting</a></li>
-          <li><a class="text-sm text-secondary hover:text-primary transition-colors" href="#">Developer API</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-xs font-bold uppercase tracking-widest text-outline mb-6">Legal</h4>
-        <ul class="space-y-4">
-          <li><a class="text-sm text-secondary hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-          <li><a class="text-sm text-secondary hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-          <li><a class="text-sm text-secondary hover:text-primary transition-colors" href="#">Cookie Settings</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-xs font-bold uppercase tracking-widest text-outline mb-6">Global</h4>
-        <ul class="space-y-4">
-          <li><span class="text-sm text-secondary">London Office</span></li>
-          <li><span class="text-sm text-secondary">Singapore Hub</span></li>
-          <li><span class="text-sm text-secondary">Zurich Desk</span></li>
-        </ul>
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Suite</p>
+        <div class="mt-4 space-y-3 text-sm text-slate-600">
+          <a href="/dashboard" class="block hover:text-slate-900">Dashboard</a>
+          <a href="/workspace/trading" class="block hover:text-slate-900">Workspace Trading</a>
+          <a href="/privacy" class="block hover:text-slate-900">Cookie e dati</a>
+          <a href="/termini" class="block hover:text-slate-900">Termini</a>
+        </div>
       </div>
     </div>
+  </footer>
 
-  </div>
-</main>
+  <script>
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
 
-<!-- ─── Footer ─── -->
-<footer class="w-full border-t border-slate-200 bg-slate-50" aria-label="Site footer">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
-    <div class="md:col-span-2">
-      <a href="../home_page_cupertino_premium/code.html" class="text-lg font-black text-slate-900 hover:text-primary transition-colors mb-4 inline-block">TaxArchitect</a>
-      <p class="text-xs text-slate-500 max-w-sm mb-6">Professional grade tax infrastructure for the next generation of global capital traders. Curated reporting, architectural precision.</p>
-      <p class="text-xs text-slate-500">© 2024 TaxArchitect. Premium Tax Reporting for Global Traders.</p>
-    </div>
-    <div></div>
-    <div class="flex flex-col space-y-3">
-      <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Privacy Policy</a>
-      <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a>
-      <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Cookie Settings</a>
-      <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../product_landing_cupertino_premium/code.html">RW Forms Guide</a>
-      <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../product_landing_cupertino_premium/code.html">RT Reporting</a>
-    </div>
-  </div>
-</footer>
+    const contactForm = document.getElementById("contact-form");
+    const successBanner = document.getElementById("form-success");
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      successBanner.classList.add("visible");
+      contactForm.reset();
+    });
 
-<script>
-  // ── Mobile menu ──
-  const btn = document.getElementById('hamburger-btn');
-  const menu = document.getElementById('mobile-menu');
-  const icon = document.getElementById('hamburger-icon');
-  btn.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded', isOpen);
-    menu.setAttribute('aria-hidden', !isOpen);
-    icon.textContent = isOpen ? 'close' : 'menu';
-  });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
 
-  // ── Form submit (demo) ──
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const success = document.getElementById('form-success');
-    this.style.opacity = '0';
-    this.style.transition = 'opacity 0.3s ease';
-    setTimeout(() => {
-      this.style.display = 'none';
-      success.classList.add('visible');
-    }, 300);
-  });
-
-  // ── Scroll reveal ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = (i % 4) * 0.07 + 's';
-    observer.observe(el);
-  });
-</script>
+    document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+  </script>
 </body>
 </html>

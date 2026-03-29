@@ -1,573 +1,295 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="it" class="light">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>TaxArchitect — Precision Tax Architecture for Global Traders</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "surface-container-highest": "#e2e2e4",
-          "on-tertiary-container": "#fefcff",
-          "on-secondary": "#ffffff",
-          "surface-container-low": "#f3f3f5",
-          "on-secondary-fixed": "#1b1b1d",
-          "inverse-primary": "#adc6ff",
-          "background": "#f9f9fb",
-          "on-surface-variant": "#414755",
-          "secondary-fixed": "#e4e2e4",
-          "secondary": "#5f5e60",
-          "surface-variant": "#e2e2e4",
-          "inverse-surface": "#2f3132",
-          "surface-bright": "#f9f9fb",
-          "error": "#ba1a1a",
-          "on-primary": "#ffffff",
-          "tertiary-container": "#747479",
-          "on-primary-fixed-variant": "#004493",
-          "on-error-container": "#93000a",
-          "on-primary-fixed": "#001a41",
-          "on-tertiary-fixed-variant": "#46464b",
-          "surface-dim": "#d9dadc",
-          "outline": "#717786",
-          "surface": "#f9f9fb",
-          "secondary-fixed-dim": "#c8c6c8",
-          "outline-variant": "#c1c6d7",
-          "on-background": "#1a1c1d",
-          "surface-container": "#eeeef0",
-          "on-primary-container": "#fefcff",
-          "tertiary-fixed-dim": "#c7c6cb",
-          "secondary-container": "#e2dfe1",
-          "on-surface": "#1a1c1d",
-          "on-error": "#ffffff",
-          "primary": "#0058bc",
-          "error-container": "#ffdad6",
-          "tertiary": "#5b5c60",
-          "tertiary-fixed": "#e3e2e7",
-          "surface-tint": "#005bc1",
-          "surface-container-high": "#e8e8ea",
-          "on-secondary-container": "#636264",
-          "primary-fixed-dim": "#adc6ff",
-          "inverse-on-surface": "#f0f0f2",
-          "primary-container": "#0070eb",
-          "surface-container-lowest": "#ffffff",
-          "on-tertiary-fixed": "#1a1b1f",
-          "on-tertiary": "#ffffff",
-          "primary-fixed": "#d8e2ff",
-          "on-secondary-fixed-variant": "#474649"
-        },
-        fontFamily: {
-          "headline": ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-          "body": ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-          "label": ["Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"]
-        },
-        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-      },
-    },
-  }
-</script>
-<style>
-  html { scroll-behavior: smooth; }
-
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    vertical-align: middle;
-  }
-  .editorial-shadow { box-shadow: 0 20px 40px rgba(26, 28, 29, 0.06); }
-  .editorial-shadow-lg { box-shadow: 0 32px 64px rgba(26, 28, 29, 0.10); }
-  .glass-header {
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-  }
-  .hero-gradient { background: linear-gradient(145deg, #0058bc 0%, #0070eb 100%); }
-
-  /* Hero entrance animations */
-  @keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  .hero-badge   { animation: fadeSlideUp 0.55s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.05s; }
-  .hero-h1      { animation: fadeSlideUp 0.65s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.18s; }
-  .hero-sub     { animation: fadeSlideUp 0.65s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.30s; }
-  .hero-ctas    { animation: fadeSlideUp 0.65s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.42s; }
-  .hero-image   { animation: fadeIn       0.80s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.30s; }
-
-  /* Scroll-triggered reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* Bento card hover */
-  .bento-card {
-    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
-  }
-  .bento-card:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 28px 56px rgba(26,28,29,0.11);
-  }
-
-  /* FAQ accordion */
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease;
-    opacity: 0;
-  }
-  .faq-item.open .faq-answer {
-    max-height: 400px;
-    opacity: 1;
-  }
-  .faq-item.open .faq-icon { transform: rotate(180deg); }
-  .faq-icon { transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); }
-
-  /* Mobile menu */
-  #mobile-menu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1);
-  }
-  #mobile-menu.open { max-height: 400px; }
-
-  /* Focus visible */
-  :focus-visible { outline: 2px solid #0058bc; outline-offset: 3px; border-radius: 4px; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trading Fiscale in BCS AI Suite | Report fiscali da MetaTrader 4/5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", sans-serif; background: #f7f7f5; color: #111827; }
+    .hero-gradient { background: linear-gradient(145deg, #0f766e 0%, #10b981 100%); }
+    .soft-shadow { box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08); }
+    .glass { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    #mobile-menu.open { max-height: 420px; }
+    .faq-answer { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.35s ease, opacity 0.25s ease; }
+    .faq-item.open .faq-answer { max-height: 220px; opacity: 1; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .faq-icon { transition: transform 0.35s ease; }
+  </style>
 </head>
-<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
-
-<!-- ─── Navigation ─── -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm" role="navigation" aria-label="Main navigation">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex justify-between items-center py-4">
-      <!-- Logo -->
-      <a href="../home_page_cupertino_premium/code.html" class="text-xl font-bold tracking-tighter text-slate-900 hover:text-primary transition-colors" aria-label="TaxArchitect Home">TaxArchitect</a>
-
-      <!-- Desktop nav -->
-      <div class="hidden md:flex items-center space-x-8">
-        <a class="text-primary font-semibold border-b-2 border-primary pb-1 font-sans text-sm tracking-tight" href="../home_page_cupertino_premium/code.html" aria-current="page">Products</a>
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../how_it_works_cupertino_premium/code.html">How it Works</a>
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../security_cupertino_premium/code.html">Security</a>
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../pricing_cupertino_premium/code.html">Pricing</a>
+<body class="selection:bg-emerald-200 selection:text-slate-900">
+  <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/50 bg-white/75 glass">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="../home_page_cupertino_premium/code.html" class="leading-none" aria-label="Trading Fiscale Home">
+        <span class="block text-xl font-black tracking-tight text-slate-900">Trading Fiscale</span>
+        <span class="block pt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">in BCS AI Suite</span>
+      </a>
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="../home_page_cupertino_premium/code.html" class="border-b-2 border-emerald-600 pb-1 text-sm font-semibold text-emerald-700">Panoramica</a>
+        <a href="../product_landing_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Prodotto</a>
+        <a href="../how_it_works_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Come funziona</a>
+        <a href="../security_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Sicurezza</a>
+        <a href="../pricing_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Prezzi</a>
       </div>
-
-      <!-- Desktop CTA -->
-      <div class="hidden md:flex items-center space-x-4">
-        <a href="../contact_cupertino_premium/code.html" class="text-slate-600 font-sans text-sm font-medium hover:text-primary transition-colors duration-200">Contact</a>
-        <a href="../pricing_cupertino_premium/code.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-sans text-sm font-medium hover:opacity-90 hover:scale-[1.03] active:scale-100 transition-all duration-200 shadow-sm">Get Started</a>
+      <div class="hidden items-center gap-4 md:flex">
+        <a href="../contact_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Assistenza</a>
+        <a href="/sign-up?redirect_url=%2Fdashboard" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]">Registrati</a>
       </div>
-
-      <!-- Hamburger -->
-      <button id="hamburger-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container-low transition-colors" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span class="material-symbols-outlined text-slate-700" id="hamburger-icon">menu</span>
+      <button id="menu-button" class="rounded-full p-2 text-slate-700 md:hidden" aria-label="Apri menu">
+        <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
-
-    <!-- Mobile menu -->
-    <div id="mobile-menu" role="menu" aria-hidden="true">
-      <div class="pb-4 space-y-1 border-t border-slate-100 pt-3">
-        <a href="../home_page_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-primary font-semibold text-sm bg-primary/5" role="menuitem" aria-current="page">Products</a>
-        <a href="../how_it_works_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">How it Works</a>
-        <a href="../security_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Security</a>
-        <a href="../pricing_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Pricing</a>
-        <a href="../contact_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Contact</a>
-        <div class="pt-2 px-3">
-          <a href="../pricing_cupertino_premium/code.html" class="block w-full text-center bg-primary text-white py-2.5 rounded-full text-sm font-semibold">Get Started</a>
-        </div>
+    <div id="mobile-menu" class="md:hidden">
+      <div class="space-y-1 border-t border-slate-200 px-6 pb-4 pt-3">
+        <a href="../home_page_cupertino_premium/code.html" class="block rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">Panoramica</a>
+        <a href="../product_landing_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Prodotto</a>
+        <a href="../how_it_works_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Come funziona</a>
+        <a href="../security_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Sicurezza</a>
+        <a href="../pricing_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Prezzi</a>
+        <a href="../contact_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Assistenza</a>
+        <a href="/sign-up?redirect_url=%2Fdashboard" class="mt-2 block rounded-full bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white">Registrati</a>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<main class="pt-24">
-
-  <!-- ─── Hero ─── -->
-  <section class="relative px-6 py-20 md:py-32 max-w-7xl mx-auto overflow-hidden" aria-labelledby="hero-heading">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="z-10">
-        <span class="hero-badge inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-[0.1em] uppercase bg-secondary-fixed text-on-secondary-fixed rounded-full">Editorial FinTech</span>
-        <h1 id="hero-heading" class="hero-h1 text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-[1.1] mb-8">
-          Precision Tax Architecture for Global Traders.
-        </h1>
-        <p class="hero-sub text-xl text-on-surface-variant leading-relaxed mb-10 max-w-xl">
-          High-fidelity RW and RT reporting. Seamlessly bridge the gap between complex brokerage data and institutional-grade compliance.
-        </p>
-        <div class="hero-ctas flex flex-col sm:flex-row gap-4">
-          <a href="../pricing_cupertino_premium/code.html" class="hero-gradient text-on-primary px-8 py-4 rounded-full font-semibold text-lg hover:scale-[1.03] active:scale-100 transition-transform editorial-shadow text-center">Start Reporting Now</a>
-          <a href="../product_landing_cupertino_premium/code.html" class="bg-surface-container-high text-on-surface px-8 py-4 rounded-full font-semibold text-lg hover:bg-surface-container-highest transition-colors text-center">View Sample Reports</a>
-        </div>
-      </div>
-
-      <div class="hero-image relative">
-        <div class="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow-lg bg-surface-container-low">
-          <img
-            class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
-            alt="Modern minimalist office space with high-end trading terminals and architectural design elements in soft natural lighting"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuByCKqGz7SdDWbDlzFtaP1oevqNm3qiNHju_yM245YVIseM7-3HSNy40IbnNM0zucxJdji2eCiZ2h4Xupb2TQnDYtJGF0qFBh4PYjpdHlhQyPu003dkN-yd9YoDs-OEje5twqnJCYJiOhNozJG9GGzp6xyGSScfVBp8oTcmDhze2I_lUqcYqdnWRCX4ADlUSbos9H1TTh7nsc-tTXnnb8KnRPbVeo_51x6FMy_NaaZ2l8UE_Nj76eA01lODh6fGDo93qRKARK2TXiIK"
-          />
-        </div>
-        <div class="absolute -bottom-8 -left-8 bg-white/90 glass-header p-6 rounded-2xl editorial-shadow max-w-[280px]">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="material-symbols-outlined text-primary" aria-hidden="true">verified</span>
-            <span class="font-bold text-sm tracking-tight uppercase">Audit Ready</span>
-          </div>
-          <p class="text-sm text-on-surface-variant leading-snug">Every transaction cross-verified against current EU and US regulatory frameworks.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Broker Integrations Bento ─── -->
-  <section class="px-6 py-24 bg-surface-container-low" aria-labelledby="connectivity-heading">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-16 reveal">
-        <h2 id="connectivity-heading" class="text-3xl md:text-4xl font-headline font-bold tracking-tight mb-4">Unified Connectivity</h2>
-        <p class="text-on-surface-variant max-w-2xl">One-click synchronization with global financial institutions. No manual CSV formatting required.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="md:col-span-2 bento-card bg-surface-container-lowest p-10 rounded-[2rem] editorial-shadow flex flex-col justify-between min-h-[320px] reveal">
-          <div>
-            <span class="material-symbols-outlined text-primary mb-4 text-4xl" aria-hidden="true">hub</span>
-            <h3 class="text-2xl font-bold mb-2">Institutional Bridge</h3>
-            <p class="text-on-surface-variant">Direct API access to IBKR, Saxo Bank, and Swissquote. Real-time ingestion of complex multi-currency positions.</p>
-          </div>
-          <div class="flex gap-4 mt-8 overflow-hidden grayscale opacity-50">
-            <div class="h-8 w-24 bg-surface-container rounded"></div>
-            <div class="h-8 w-24 bg-surface-container rounded"></div>
-            <div class="h-8 w-24 bg-surface-container rounded"></div>
-          </div>
-        </div>
-
-        <div class="bento-card bg-primary p-10 rounded-[2rem] text-on-primary editorial-shadow flex flex-col justify-center reveal">
-          <h3 class="text-4xl font-black mb-4">50+</h3>
-          <p class="text-primary-fixed opacity-90 text-lg">Supported brokers worldwide, covering Equities, Options, and FX.</p>
-        </div>
-
-        <div class="bento-card bg-surface-container-highest p-10 rounded-[2rem] flex flex-col justify-center reveal">
-          <h3 class="text-2xl font-bold mb-2">RW &amp; RT Logic</h3>
-          <p class="text-on-surface-variant">Automated wash sale tracking and replacement transaction matching.</p>
-        </div>
-
-        <div class="md:col-span-2 bento-card bg-surface-container-lowest p-10 rounded-[2rem] editorial-shadow flex items-center gap-8 overflow-hidden reveal">
-          <div class="w-1/2">
-            <h3 class="text-2xl font-bold mb-2">Live Compliance Feed</h3>
-            <p class="text-on-surface-variant">Stay updated with changing tax laws in real-time as you trade.</p>
-          </div>
-          <div class="w-1/2 relative h-40">
-            <img
-              class="absolute inset-0 w-full h-full object-cover rounded-xl"
-              loading="lazy"
-              alt="Close up of a clean data visualization dashboard showing financial growth curves and analytics"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM1aLcvg6nBV1CtODPvrzDPGbWSQbOHr_cnb3tUB11-4PmcTEgSIEoZzxa0GDdSoEC36_O_-FyzhAXiRcHNDQ3JxMg8smxZ_OI1iN6o4iJjTDuMWJLISDw6n_4bnZHwIix0gPKodiaNsb_07ZKI_XZVGOxiMRSw0wGvgg_ZCbzjGo4UNMcX3LcpULoPv0ZW_esN2T1WrX3lqzJX1MhX_O9ps57IHUMwN2GNQ_q3M0tmkB05E6us5EMNEQSmk2Za2WNsQT-9NqkgLLA"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Core Benefits ─── -->
-  <section class="px-6 py-32 max-w-7xl mx-auto" aria-labelledby="benefits-heading">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
-      <div class="reveal">
-        <h2 id="benefits-heading" class="text-4xl md:text-6xl font-headline font-bold tracking-tighter leading-tight mb-8">Why the World's Top Traders Choose TaxArchitect.</h2>
-        <p class="text-xl text-on-surface-variant mb-12">We don't just calculate numbers; we engineer tax strategies that withstand institutional scrutiny.</p>
-        <div class="space-y-10">
-          <div class="flex gap-6 group">
-            <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
-              <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300" aria-hidden="true">security</span>
-            </div>
-            <div>
-              <h4 class="text-xl font-bold mb-2">Vault-Grade Privacy</h4>
-              <p class="text-on-surface-variant">AES-256 encryption. Your data never touches a public server; we use isolated cloud instances for each client.</p>
-            </div>
-          </div>
-          <div class="flex gap-6 group">
-            <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
-              <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300" aria-hidden="true">account_balance</span>
-            </div>
-            <div>
-              <h4 class="text-xl font-bold mb-2">Institutional Accuracy</h4>
-              <p class="text-on-surface-variant">Calculations verified by former Big Four auditors and tax attorneys specialized in derivative trading.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4 reveal">
-        <div class="pt-12">
-          <div class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-4">
-            <img
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-              alt="Professional tax consultant in a bright office environment reviewing digital documents on a sleek tablet"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh3Bp9HzYgDyF89iWTl3d2Z6HQ3OSq_HKYlT-03fzf6HFO4zErZ35DqL_lgQVLJPpfq44GjpbsOdaHtLc54uHn-NrxlCiOigz5e3VA-G45iVLyvG6yQihtwWwpHa2e99Z6_-ln69yiu_tzrCYXhIJDMg9wHNqp2ZqPLvcMNn7EQ1SM1P1BEaftgDEHcYiZ24ghcXW1l2IW-a5rk3BbGGcXcCt3UUX_yAh5aK6fsDgYz51ysXjqvX8HsCiZ9v9WidKHrkpZSIe4Vc4S"
-            />
-          </div>
-          <div class="aspect-square rounded-[2rem] bg-secondary-container p-8 flex flex-col justify-end">
-            <p class="text-2xl font-bold leading-tight">Zero-Error Guarantee.</p>
-          </div>
-        </div>
+  <main class="pt-24">
+    <section class="px-6 pb-16 pt-8">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
-          <div class="aspect-square rounded-[2rem] bg-surface-container-high mb-4 overflow-hidden p-8 flex flex-col justify-center">
-            <span class="text-4xl font-black text-primary">99.9%</span>
-            <p class="text-sm font-bold uppercase tracking-widest mt-2">Audit Acceptance</p>
+          <span class="inline-flex rounded-full bg-emerald-100 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-800">Modulo fiscale in BCS AI Suite</span>
+          <h1 class="mt-8 max-w-4xl text-5xl font-black tracking-tight text-slate-900 md:text-7xl md:leading-[0.95]">Trading Fiscale per report MetaTrader chiari, pronti da usare.</h1>
+          <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">Registrati nella suite, entra in dashboard, attiva l'app e trasforma un export HTML MetaTrader 4/5 in un riepilogo fiscale ordinato con PDF e facsimili RW/RT.</p>
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="/sign-up?redirect_url=%2Fdashboard" class="hero-gradient inline-flex items-center justify-center rounded-full px-8 py-4 text-lg font-semibold text-white soft-shadow">Registrati ed entra in dashboard</a>
+            <a href="../how_it_works_cupertino_premium/code.html" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-semibold text-slate-900 soft-shadow">Scopri come funziona</a>
           </div>
-          <div class="aspect-[3/4] rounded-[2rem] overflow-hidden">
-            <img
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-              alt="Detailed macro shot of premium business paperwork and a high-end fountain pen on a designer desk"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY7Y0dbsZRLhAU1d0JHWsbOjsh7-5F5Miwhkz17bNY2ZkW0PYsbOlOmsiOtHCPG43iNBhoCrK9q1T4BLHKQyEpO1e0CilwCU-GI9rAx-CRwa09KuQCqTDJ8NUl-X0Hp-ZYrFidAq4ka9tSTibDaDP8wFJ-jeZ6efbzeUqpXP8VeQCsNynk77lsMDiy2vhyvUKwpDQ3L-2ZEXkfDMuTOkrT0toCL0SAhqGUICr0O6e5erb_hPwh8wveCWys7o1GDk4yZd5KHpF72j7X"
-            />
+          <div class="mt-10 rounded-[2rem] bg-white/85 p-6 soft-shadow">
+            <div class="flex items-center gap-3 text-sm font-bold uppercase tracking-[0.16em] text-slate-900">
+              <span class="material-symbols-outlined text-emerald-700">verified</span>
+              Flusso reale
+            </div>
+            <p class="mt-3 max-w-xl text-sm leading-7 text-slate-600">Accesso unificato con Clerk, acquisto dell'app dalla dashboard BCS AI Suite e area operativa dedicata. Nessuna promessa fuori dal prodotto, solo il percorso che esiste davvero.</p>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -left-10 top-10 h-40 w-40 rounded-full bg-emerald-200/70 blur-3xl"></div>
+          <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 soft-shadow">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuByCKqGz7SdDWbDlzFtaP1oevqNm3qiNHju_yM245YVIseM7-3HSNy40IbnNM0zucxJdji2eCiZ2h4Xupb2TQnDYtJGF0qFBh4PYjpdHlhQyPu003dkN-yd9YoDs-OEje5twqnJCYJiOhNozJG9GGzp6xyGSScfVBp8oTcmDhze2I_lUqcYqdnWRCX4ADlUSbos9H1TTh7nsc-tTXnnb8KnRPbVeo_51x6FMy_NaaZ2l8UE_Nj76eA01lODh6fGDo93qRKARK2TXiIK" alt="Workspace editoriale con monitor e documenti finanziari" class="h-full w-full object-cover opacity-90" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/20 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-8 text-white">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">Dentro la suite</p>
+              <p class="mt-3 max-w-md text-lg leading-7 text-slate-200">Un account solo per accedere alla dashboard, attivare i moduli e aprire il workspace di Trading Fiscale con il percorso corretto.</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ─── Compliance Board ─── -->
-  <section class="px-6 py-24 bg-surface-container-low" aria-labelledby="team-heading">
-    <div class="max-w-7xl mx-auto text-center mb-16 reveal">
-      <span class="text-primary font-bold tracking-widest uppercase text-xs">Human Intelligence</span>
-      <h2 id="team-heading" class="text-4xl md:text-5xl font-headline font-bold mt-4">The Compliance Board</h2>
-    </div>
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div class="group cursor-pointer reveal">
-        <div class="aspect-[4/5] rounded-3xl overflow-hidden mb-6 relative">
-          <img
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            loading="lazy"
-            alt="Dr. Erik Von Berg — Global Tax Architect, professional portrait with editorial lighting"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg77-aRJXoMYdY-Dx9Lj8qP-eOg92oXMA96DhbUiyNsciLpL5qnZohHI4nBy29nWTim-8Hgw1Fc9RbPum-eE1ITJvZETfhQhJK6Me-O-oo7gHhTFT_OzCzdg4kv0IViq8f3LoyfulLA2DuncXDrBVvqH0_FaBXe_5E1QjFz6RFWQ76LYDJ21YSmKAMQyZKOVkTJpE8MqDpe88jxpIR13d6fejK0fEQ4oguuLuQpDKS8pE1gcgt0nhkhOUHo-pcokY-Y4CaFYKmyH5U"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <section class="bg-slate-100 px-6 py-20">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Dentro il flusso giusto</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">L'app non vive separata dal resto di BCS AI Suite.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">Trading Fiscale condivide accesso, acquisto e uso con le altre app della piattaforma. Il sito dedicato racconta lo stesso funnel che l'utente trova davvero nella suite.</p>
         </div>
-        <h3 class="text-lg font-bold">Dr. Erik Von Berg</h3>
-        <p class="text-sm text-on-surface-variant">Global Tax Architect</p>
-      </div>
-      <div class="group cursor-pointer reveal">
-        <div class="aspect-[4/5] rounded-3xl overflow-hidden mb-6 relative">
-          <img
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            loading="lazy"
-            alt="Sarah Chen — Head of EU Compliance, professional portrait"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAShMQbTG-tQ01oofyqAxSwySJl-vhEBZPuPXoR6sZfwiNLw6nNRkZP0mO1GNWHrZv3fLOXTTjA26nSWDBc5BN_-qIHWWtaDuLp9xxA3hbmjjQYPjg9yjTNDeDob1qmBRts1PYMjAFZz1ztM0UdNOtNgzWywfMF5n6Zw4n_KWKsn--sev1P8OtZQKKdbMDZLxTjziCN9kUYUsMZxEoIO8pqd8Bg7rsiyHySzEllEYLy3AgikJR0AdIqjZPoqlRrj-GXA0-YmMu8lFq8"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        <h3 class="text-lg font-bold">Sarah Chen</h3>
-        <p class="text-sm text-on-surface-variant">Head of EU Compliance</p>
-      </div>
-      <div class="group cursor-pointer reveal">
-        <div class="aspect-[4/5] rounded-3xl overflow-hidden mb-6 relative">
-          <img
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            loading="lazy"
-            alt="Marcus Thorne — Derivatives Specialist, senior executive portrait"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw-e0GsoMnzaAv_1H26FGW-t6dVIQMxF7dG-fWxlD4rh38FrE2Rh0jaDGp_dXewNuL1p5D5cU_mOF5CuHGxkC5GVRlaPMRmXu7-44DdlGuy4_2LdAX_OkuQX3OUplhNvgc0HkmIC84X5UKuP8sJ7AW0wqjha50aUzOxPP36EYxXRLzO7cjnxbiG11sI97Bu2wA5CETz0XF6D0E9HbvA60Owo7cKB5oTCJdK1G2Fve-YJFR66FSpDR0JBbq25pSG6yk5vQiOTMbI1Uv"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        <h3 class="text-lg font-bold">Marcus Thorne</h3>
-        <p class="text-sm text-on-surface-variant">Derivatives Specialist</p>
-      </div>
-      <div class="group cursor-pointer reveal">
-        <div class="aspect-[4/5] rounded-3xl overflow-hidden mb-6 relative">
-          <img
-            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            loading="lazy"
-            alt="Elena Rodriguez — Digital Asset Counsel, professional portrait"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDtaacIUI-zjyODJHTG7nBqVWKmogHk3VhqNsifsPSU7E8NLMqQ1UpeGUKBGDgRa2Db18L3JrAl2dwVS9fN6SLxpafyuO0Z3lh-zuZWyXFSqNq5RWmBjcqET3Y0FL5D8h6fUZaZhbtXcy_CsI2xk5OLaUAX5CfetXy9EOuJ1X7hLm1l0S6exi83Jup9C8jcksUoPGb-KTp5Z86UwFJpdqx4o6h24kqOJvIdpbYVzG_8-Ojwt2U7cNE3vo0_37hmlgYUtsLmUUmiFzq"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        <h3 class="text-lg font-bold">Elena Rodriguez</h3>
-        <p class="text-sm text-on-surface-variant">Digital Asset Counsel</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── FAQ ─── -->
-  <section class="px-6 py-32 max-w-4xl mx-auto" aria-labelledby="faq-heading">
-    <div class="text-center mb-16 reveal">
-      <h2 id="faq-heading" class="text-4xl font-headline font-bold mb-4">Common Inquiries</h2>
-      <p class="text-on-surface-variant">Expert answers to complex reporting questions.</p>
-    </div>
-    <div class="space-y-4" role="list">
-
-      <!-- FAQ 1 — pre-opened -->
-      <div class="faq-item open bg-surface-container-low rounded-2xl overflow-hidden hover:bg-surface-container transition-colors reveal" role="listitem">
-        <button
-          class="faq-trigger w-full flex justify-between items-center p-8 text-left focus-visible:outline-none"
-          aria-expanded="true"
-          aria-controls="faq-answer-1"
-        >
-          <h4 class="text-lg font-bold pr-4">How do you handle Wash Sales across multiple brokers?</h4>
-          <span class="material-symbols-outlined faq-icon flex-shrink-0 text-primary" aria-hidden="true">expand_more</span>
-        </button>
-        <div id="faq-answer-1" class="faq-answer" role="region">
-          <p class="px-8 pb-8 text-on-surface-variant leading-relaxed">Our proprietary engine synchronizes trade timing across all integrated accounts to identify replacement transactions within the 30-day window, ensuring full RW compliance regardless of where the trade was executed.</p>
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article class="reveal rounded-[2rem] bg-white p-8 soft-shadow">
+            <span class="material-symbols-outlined text-4xl text-emerald-700">hub</span>
+            <h3 class="mt-6 text-2xl font-bold text-slate-900">Ingresso unificato</h3>
+            <p class="mt-3 text-base leading-7 text-slate-600">Registrazione e login passano da Clerk. Una volta dentro BCS AI Suite trovi dashboard, app attive e storico nello stesso ambiente.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-slate-900 p-8 text-white soft-shadow">
+            <p class="text-5xl font-black tracking-tight">1 account</p>
+            <p class="mt-4 text-lg leading-8 text-slate-300">Accesso unico a dashboard, acquisti e moduli della suite, compreso Trading Fiscale.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-white p-8 soft-shadow">
+            <span class="material-symbols-outlined text-4xl text-emerald-700">description</span>
+            <h3 class="mt-6 text-2xl font-bold text-slate-900">Output fiscale</h3>
+            <p class="mt-3 text-base leading-7 text-slate-600">L'app trasforma il report HTML MetaTrader in PDF riepilogativo, storico report e facsimili RW/RT quando previsti.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-emerald-50 p-8 soft-shadow">
+            <span class="material-symbols-outlined text-4xl text-emerald-700">inventory_2</span>
+            <h3 class="mt-6 text-2xl font-bold text-slate-900">MetaTrader 4/5</h3>
+            <p class="mt-3 text-base leading-7 text-slate-600">Il flusso e pensato per report HTML esportati da MetaTrader, senza raccontare funzioni che il prodotto non promette.</p>
+          </article>
         </div>
       </div>
+    </section>
 
-      <!-- FAQ 2 -->
-      <div class="faq-item bg-surface-container-low rounded-2xl overflow-hidden hover:bg-surface-container transition-colors reveal" role="listitem">
-        <button
-          class="faq-trigger w-full flex justify-between items-center p-8 text-left focus-visible:outline-none"
-          aria-expanded="false"
-          aria-controls="faq-answer-2"
-        >
-          <h4 class="text-lg font-bold pr-4">Can TaxArchitect generate RT reports for German residents?</h4>
-          <span class="material-symbols-outlined faq-icon flex-shrink-0 text-primary" aria-hidden="true">expand_more</span>
-        </button>
-        <div id="faq-answer-2" class="faq-answer" role="region">
-          <p class="px-8 pb-8 text-on-surface-variant leading-relaxed">Yes. TaxArchitect fully supports Anlage KAP and all required RT reporting formats for German tax residents. Our engine applies the correct loss offsetting rules and automatically separates income categories as required by German fiscal law.</p>
+    <section class="px-6 py-20">
+      <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.1fr]">
+        <div class="reveal rounded-[2.5rem] bg-slate-900 p-10 text-white soft-shadow">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">Perche usarlo</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight md:text-5xl">Il vantaggio non e solo il calcolo.</h2>
+          <p class="mt-5 max-w-xl text-lg leading-8 text-slate-300">Il vero valore e avere un percorso ordinato: registrazione, dashboard, attivazione app, upload e storico nello stesso ecosistema.</p>
+          <div class="mt-10 grid gap-4">
+            <div class="rounded-[1.5rem] bg-white/8 p-5">
+              <p class="text-xl font-bold">Contesto italiano</p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">L'app parla il linguaggio di chi deve arrivare a un output fiscale leggibile, non a una vetrina generica sul trading.</p>
+            </div>
+            <div class="rounded-[1.5rem] bg-white/8 p-5">
+              <p class="text-xl font-bold">Funzioni concrete</p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">Anno fiscale, tipo conto standard o centesimale, PDF riepilogativo, facsimili RW/RT e storico coerente con il piano attivo.</p>
+            </div>
+            <div class="rounded-[1.5rem] bg-white/8 p-5">
+              <p class="text-xl font-bold">Piani reali</p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">Tre livelli chiari: Base, Standard e Pro. Senza numeri inventati e senza listini in dollari fuori contesto.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Per chi e pensata</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">Quattro casi d'uso ricorrenti.</h2>
+          <div class="mt-8 grid gap-5 sm:grid-cols-2">
+            <article class="rounded-[2rem] bg-white p-6 soft-shadow">
+              <h3 class="text-lg font-bold text-slate-900">Trader retail</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">Per chi vuole partire da un export MetaTrader e arrivare a un riepilogo fiscale ordinato.</p>
+            </article>
+            <article class="rounded-[2rem] bg-white p-6 soft-shadow">
+              <h3 class="text-lg font-bold text-slate-900">Piu conti nello stesso anno</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">Per chi deve gestire piu report nello stesso periodo senza uscire dalla dashboard della suite.</p>
+            </article>
+            <article class="rounded-[2rem] bg-white p-6 soft-shadow">
+              <h3 class="text-lg font-bold text-slate-900">Storico da recuperare</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">Per chi ha bisogno di aprire anni precedenti e mantenere lo storico nel workspace dedicato.</p>
+            </article>
+            <article class="rounded-[2rem] bg-white p-6 soft-shadow">
+              <h3 class="text-lg font-bold text-slate-900">Supporto al commercialista</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">Per chi vuole consegnare PDF e materiale fiscale piu leggibile rispetto al report grezzo del broker.</p>
+            </article>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- FAQ 3 -->
-      <div class="faq-item bg-surface-container-low rounded-2xl overflow-hidden hover:bg-surface-container transition-colors reveal" role="listitem">
-        <button
-          class="faq-trigger w-full flex justify-between items-center p-8 text-left focus-visible:outline-none"
-          aria-expanded="false"
-          aria-controls="faq-answer-3"
-        >
-          <h4 class="text-lg font-bold pr-4">What is the data security protocol for API connections?</h4>
-          <span class="material-symbols-outlined faq-icon flex-shrink-0 text-primary" aria-hidden="true">expand_more</span>
-        </button>
-        <div id="faq-answer-3" class="faq-answer" role="region">
-          <p class="px-8 pb-8 text-on-surface-variant leading-relaxed">All API connections are read-only and use OAuth 2.0 with TLS 1.3 encryption in transit. We never request withdrawal permissions and your credentials are encrypted at rest using AES-256. Our infrastructure is SOC 2 Type II certified with continuous penetration testing.</p>
+    <section class="bg-slate-100 px-6 py-20">
+      <div class="mx-auto max-w-4xl">
+        <div class="reveal text-center">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">FAQ</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900">Domande frequenti</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">Le risposte piu utili per capire il flusso reale dell'app dentro la suite.</p>
+        </div>
+        <div class="mt-10 space-y-4">
+          <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
+            <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
+              <span class="text-lg font-bold text-slate-900">Che file devo caricare?</span>
+              <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
+            </button>
+            <div class="faq-answer">
+              <p class="pt-4 text-sm leading-7 text-slate-600">Trading Fiscale lavora sui report HTML esportati da MetaTrader 4 o 5. Il file viene caricato dall'area operativa dopo l'attivazione dell'app.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
+            <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
+              <span class="text-lg font-bold text-slate-900">Devo comprare l'app prima di usarla?</span>
+              <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
+            </button>
+            <div class="faq-answer">
+              <p class="pt-4 text-sm leading-7 text-slate-600">Prima ti registri in BCS AI Suite, poi entri in dashboard e attivi Trading Fiscale come le altre app del catalogo. Da li accedi al workspace dedicato.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
+            <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
+              <span class="text-lg font-bold text-slate-900">Posso scegliere l'anno fiscale?</span>
+              <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
+            </button>
+            <div class="faq-answer">
+              <p class="pt-4 text-sm leading-7 text-slate-600">Si. L'anno fiscale viene selezionato nel workspace e la disponibilita dipende dal piano attivo: Base e Standard sono piu essenziali, Pro apre lo storico completo.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
+            <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
+              <span class="text-lg font-bold text-slate-900">Che cosa ottengo alla fine?</span>
+              <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
+            </button>
+            <div class="faq-answer">
+              <p class="pt-4 text-sm leading-7 text-slate-600">Il risultato finale include un PDF riepilogativo, lo storico dei report nel workspace e i facsimili RW/RT previsti dal flusso dell'app.</p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- FAQ 4 -->
-      <div class="faq-item bg-surface-container-low rounded-2xl overflow-hidden hover:bg-surface-container transition-colors reveal" role="listitem">
-        <button
-          class="faq-trigger w-full flex justify-between items-center p-8 text-left focus-visible:outline-none"
-          aria-expanded="false"
-          aria-controls="faq-answer-4"
-        >
-          <h4 class="text-lg font-bold pr-4">Do you support crypto-to-fiat derivative reporting?</h4>
-          <span class="material-symbols-outlined faq-icon flex-shrink-0 text-primary" aria-hidden="true">expand_more</span>
-        </button>
-        <div id="faq-answer-4" class="faq-answer" role="region">
-          <p class="px-8 pb-8 text-on-surface-variant leading-relaxed">Yes. We support all major derivative types including crypto futures, perpetual swaps, and options. Our engine correctly handles mark-to-market taxation for Section 1256 contracts and applies the appropriate jurisdiction-specific rules for crypto derivatives in EU, UK, and Asia-Pacific markets.</p>
+    <section class="px-6 py-20">
+      <div class="hero-gradient mx-auto max-w-6xl overflow-hidden rounded-[2.75rem] px-8 py-14 text-center text-white soft-shadow md:px-16 md:py-20">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-100">Call to action</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight md:text-6xl">Entra in BCS AI Suite e attiva Trading Fiscale.</h2>
+        <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-emerald-50">Registrati una volta, accedi alla dashboard e usa l'app quando ti serve, insieme alle altre della suite.</p>
+        <div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+          <a href="/sign-up?redirect_url=%2Fdashboard" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-semibold text-slate-900">Registrati ora</a>
+          <a href="../pricing_cupertino_premium/code.html" class="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-4 text-lg font-semibold text-white">Vai ai prezzi</a>
         </div>
       </div>
+    </section>
+  </main>
 
-    </div>
-  </section>
-
-  <!-- ─── Final CTA ─── -->
-  <section class="px-6 py-20">
-    <div class="max-w-7xl mx-auto hero-gradient rounded-[3rem] p-12 md:p-24 text-center text-on-primary editorial-shadow-lg overflow-hidden relative reveal">
-      <div class="relative z-10">
-        <h2 class="text-4xl md:text-6xl font-headline font-black mb-8">Ready for the Next Tax Cycle?</h2>
-        <p class="text-xl opacity-90 mb-12 max-w-2xl mx-auto">Join thousands of high-net-worth traders who have automated their compliance journey.</p>
-        <a href="../pricing_cupertino_premium/code.html" class="inline-block bg-white text-primary px-10 py-5 rounded-full font-bold text-xl hover:scale-105 active:scale-100 transition-transform shadow-xl">Get Started with TaxArchitect</a>
+  <footer class="border-t border-slate-200 bg-white px-6 py-14">
+    <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <p class="text-xl font-black tracking-tight text-slate-900">Trading Fiscale</p>
+        <p class="mt-3 max-w-md text-sm leading-7 text-slate-600">Modulo di BCS AI Suite dedicato a chi parte da un export MetaTrader 4/5 e vuole arrivare a un output fiscale piu ordinato dentro un funnel coerente.</p>
+        <p class="mt-4 text-xs text-slate-500">&copy; 2026 Trading Fiscale in BCS AI Suite.</p>
       </div>
-      <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" aria-hidden="true"></div>
-      <div class="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none" aria-hidden="true"></div>
-    </div>
-  </section>
-
-</main>
-
-<!-- ─── Footer ─── -->
-<footer class="w-full border-t border-slate-200 bg-slate-50" aria-label="Site footer">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
-    <div class="md:col-span-1">
-      <a href="../home_page_cupertino_premium/code.html" class="text-lg font-black text-slate-900 hover:text-primary transition-colors mb-4 inline-block">TaxArchitect</a>
-      <p class="text-xs text-slate-500 leading-relaxed mb-6">© 2024 TaxArchitect. Premium Tax Reporting for Global Traders.</p>
-    </div>
-    <div>
-      <h5 class="text-slate-900 font-medium text-sm mb-4">Product</h5>
-      <ul class="space-y-2">
-        <li><a class="text-xs text-slate-500 hover:text-blue-600 transition-all underline-offset-4 hover:underline" href="../product_landing_cupertino_premium/code.html">RW Forms Guide</a></li>
-        <li><a class="text-xs text-slate-500 hover:text-blue-600 transition-all underline-offset-4 hover:underline" href="../product_landing_cupertino_premium/code.html">RT Reporting</a></li>
-        <li><a class="text-xs text-slate-500 hover:text-blue-600 transition-all underline-offset-4 hover:underline" href="../pricing_cupertino_premium/code.html">Pricing Plans</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5 class="text-slate-900 font-medium text-sm mb-4">Legal</h5>
-      <ul class="space-y-2">
-        <li><a class="text-xs text-slate-500 hover:text-blue-600 transition-all underline-offset-4 hover:underline" href="#">Privacy Policy</a></li>
-        <li><a class="text-xs text-slate-500 hover:text-blue-600 transition-all underline-offset-4 hover:underline" href="#">Terms of Service</a></li>
-        <li><a class="text-xs text-slate-500 hover:text-blue-600 transition-all underline-offset-4 hover:underline" href="#">Cookie Settings</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5 class="text-slate-900 font-medium text-sm mb-4">Stay Updated</h5>
-      <div class="flex gap-2">
-        <input
-          class="bg-surface-container-high border-none rounded-lg text-xs w-full focus:ring-1 focus:ring-primary"
-          placeholder="Email address"
-          type="email"
-          aria-label="Email address for newsletter"
-        />
-        <button class="bg-primary text-on-primary p-2 rounded-lg hover:bg-primary-container transition-colors" aria-label="Subscribe to newsletter">
-          <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
-        </button>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Prodotto</p>
+        <div class="mt-4 space-y-3 text-sm text-slate-600">
+          <a href="../product_landing_cupertino_premium/code.html" class="block hover:text-slate-900">Funzionalita</a>
+          <a href="../how_it_works_cupertino_premium/code.html" class="block hover:text-slate-900">Come funziona</a>
+          <a href="../pricing_cupertino_premium/code.html" class="block hover:text-slate-900">Piani e prezzi</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Suite</p>
+        <div class="mt-4 space-y-3 text-sm text-slate-600">
+          <a href="/dashboard" class="block hover:text-slate-900">Dashboard</a>
+          <a href="/workspace/trading" class="block hover:text-slate-900">Workspace Trading</a>
+          <a href="/privacy" class="block hover:text-slate-900">Cookie e dati</a>
+          <a href="/termini" class="block hover:text-slate-900">Termini</a>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  // ── Mobile menu toggle ──
-  const btn = document.getElementById('hamburger-btn');
-  const menu = document.getElementById('mobile-menu');
-  const icon = document.getElementById('hamburger-icon');
-  btn.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded', isOpen);
-    menu.setAttribute('aria-hidden', !isOpen);
-    icon.textContent = isOpen ? 'close' : 'menu';
-  });
+  <script>
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
 
-  // ── FAQ accordion ──
-  document.querySelectorAll('.faq-trigger').forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const item = trigger.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.faq-item').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+    document.querySelectorAll(".faq-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const item = trigger.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
+        document.querySelectorAll(".faq-item").forEach((node) => {
+          node.classList.remove("open");
+          node.querySelector(".faq-trigger").setAttribute("aria-expanded", "false");
+        });
+        if (!isOpen) {
+          item.classList.add("open");
+          trigger.setAttribute("aria-expanded", "true");
+        }
       });
-      // Toggle clicked
-      if (!isOpen) {
-        item.classList.add('open');
-        trigger.setAttribute('aria-expanded', 'true');
-      }
     });
-  });
 
-  // ── Scroll reveal ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
 
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = (i % 4) * 0.07 + 's';
-    observer.observe(el);
-  });
-</script>
+    document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+  </script>
 </body>
 </html>

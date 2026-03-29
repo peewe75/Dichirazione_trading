@@ -1,299 +1,220 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="it" class="light">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Security | TaxArchitect</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "surface-container-highest": "#e2e2e4","on-tertiary-container": "#fefcff","on-secondary": "#ffffff","surface-container-low": "#f3f3f5","on-secondary-fixed": "#1b1b1d","inverse-primary": "#adc6ff","background": "#f9f9fb","on-surface-variant": "#414755","secondary-fixed": "#e4e2e4","secondary": "#5f5e60","surface-variant": "#e2e2e4","inverse-surface": "#2f3132","surface-bright": "#f9f9fb","error": "#ba1a1a","on-primary": "#ffffff","tertiary-container": "#747479","on-primary-fixed-variant": "#004493","on-error-container": "#93000a","on-primary-fixed": "#001a41","on-tertiary-fixed-variant": "#46464b","surface-dim": "#d9dadc","outline": "#717786","surface": "#f9f9fb","secondary-fixed-dim": "#c8c6c8","outline-variant": "#c1c6d7","on-background": "#1a1c1d","surface-container": "#eeeef0","on-primary-container": "#fefcff","tertiary-fixed-dim": "#c7c6cb","secondary-container": "#e2dfe1","on-surface": "#1a1c1d","on-error": "#ffffff","primary": "#0058bc","error-container": "#ffdad6","tertiary": "#5b5c60","tertiary-fixed": "#e3e2e7","surface-tint": "#005bc1","surface-container-high": "#e8e8ea","on-secondary-container": "#636264","primary-fixed-dim": "#adc6ff","inverse-on-surface": "#f0f0f2","primary-container": "#0070eb","surface-container-lowest": "#ffffff","on-tertiary-fixed": "#1a1b1f","on-tertiary": "#ffffff","primary-fixed": "#d8e2ff","on-secondary-fixed-variant": "#474649"
-        },
-        fontFamily: { "headline": ["Inter","-apple-system","sans-serif"], "body": ["Inter","-apple-system","sans-serif"], "label": ["Inter","-apple-system","sans-serif"] },
-        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-      },
-    },
-  }
-</script>
-<style>
-  html { scroll-behavior: smooth; }
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
-  .glass-panel { background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-  .ink-shadow { box-shadow: 0 20px 40px rgba(26,28,29,0.04); }
-  .primary-gradient { background: linear-gradient(145deg, #0058bc 0%, #0070eb 100%); }
-
-  @keyframes fadeSlideUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-  .hero-animate { animation: fadeSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) both; }
-  .delay-1 { animation-delay:0.1s; } .delay-2 { animation-delay:0.22s; } .delay-3 { animation-delay:0.34s; }
-
-  .reveal { opacity:0; transform:translateY(20px); transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1); }
-  .reveal.visible { opacity:1; transform:translateY(0); }
-
-  .bento-card { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease; }
-  .bento-card:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 28px 56px rgba(26,28,29,0.10); }
-
-  #mobile-menu { max-height:0; overflow:hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1); }
-  #mobile-menu.open { max-height:400px; }
-  :focus-visible { outline:2px solid #0058bc; outline-offset:3px; border-radius:4px; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sicurezza | Trading Fiscale in BCS AI Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", sans-serif; background: #f7f7f5; color: #111827; }
+    .hero-gradient { background: linear-gradient(145deg, #0f766e 0%, #10b981 100%); }
+    .soft-shadow { box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08); }
+    .glass { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    #mobile-menu.open { max-height: 420px; }
+  </style>
 </head>
-<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
-
-<!-- ─── Navigation ─── -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-sm" role="navigation" aria-label="Main navigation">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex justify-between items-center py-4">
-      <a href="../home_page_cupertino_premium/code.html" class="text-xl font-bold tracking-tighter text-slate-900 hover:text-primary transition-colors" aria-label="TaxArchitect Home">TaxArchitect</a>
-      <div class="hidden md:flex items-center gap-8">
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../home_page_cupertino_premium/code.html">Products</a>
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../how_it_works_cupertino_premium/code.html">How it Works</a>
-        <a class="text-primary font-semibold border-b-2 border-primary pb-1 font-sans text-sm tracking-tight" href="../security_cupertino_premium/code.html" aria-current="page">Security</a>
-        <a class="text-slate-600 hover:text-slate-900 transition-colors font-sans text-sm tracking-tight font-medium" href="../pricing_cupertino_premium/code.html">Pricing</a>
+<body class="selection:bg-emerald-200 selection:text-slate-900">
+  <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/50 bg-white/75 glass">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="../home_page_cupertino_premium/code.html" class="leading-none" aria-label="Trading Fiscale Home">
+        <span class="block text-xl font-black tracking-tight text-slate-900">Trading Fiscale</span>
+        <span class="block pt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">in BCS AI Suite</span>
+      </a>
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="../home_page_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Panoramica</a>
+        <a href="../product_landing_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Prodotto</a>
+        <a href="../how_it_works_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Come funziona</a>
+        <a href="../security_cupertino_premium/code.html" class="border-b-2 border-emerald-600 pb-1 text-sm font-semibold text-emerald-700">Sicurezza</a>
+        <a href="../pricing_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Prezzi</a>
       </div>
-      <div class="hidden md:flex items-center gap-4">
-        <a href="../contact_cupertino_premium/code.html" class="text-slate-600 font-sans text-sm font-medium hover:text-primary transition-colors">Contact</a>
-        <a href="../pricing_cupertino_premium/code.html" class="primary-gradient text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-[1.03] active:scale-100 transition-transform shadow-lg shadow-primary/20">Get Started</a>
+      <div class="hidden items-center gap-4 md:flex">
+        <a href="../contact_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Assistenza</a>
+        <a href="/sign-up?redirect_url=%2Fdashboard" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]">Registrati</a>
       </div>
-      <button id="hamburger-btn" class="md:hidden p-2 rounded-lg hover:bg-surface-container-low transition-colors" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span class="material-symbols-outlined text-slate-700" id="hamburger-icon">menu</span>
+      <button id="menu-button" class="rounded-full p-2 text-slate-700 md:hidden" aria-label="Apri menu">
+        <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
-    <div id="mobile-menu" role="menu" aria-hidden="true">
-      <div class="pb-4 space-y-1 border-t border-slate-100 pt-3">
-        <a href="../home_page_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Products</a>
-        <a href="../how_it_works_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">How it Works</a>
-        <a href="../security_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-primary font-semibold text-sm bg-primary/5" role="menuitem" aria-current="page">Security</a>
-        <a href="../pricing_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Pricing</a>
-        <a href="../contact_cupertino_premium/code.html" class="flex items-center px-3 py-2.5 rounded-lg text-slate-700 hover:bg-surface-container-low text-sm font-medium transition-colors" role="menuitem">Contact</a>
-        <div class="pt-2 px-3"><a href="../pricing_cupertino_premium/code.html" class="block w-full text-center bg-primary text-white py-2.5 rounded-full text-sm font-semibold">Get Started</a></div>
+    <div id="mobile-menu" class="md:hidden">
+      <div class="space-y-1 border-t border-slate-200 px-6 pb-4 pt-3">
+        <a href="../home_page_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Panoramica</a>
+        <a href="../product_landing_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Prodotto</a>
+        <a href="../how_it_works_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Come funziona</a>
+        <a href="../security_cupertino_premium/code.html" class="block rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">Sicurezza</a>
+        <a href="../pricing_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Prezzi</a>
+        <a href="../contact_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Assistenza</a>
+        <a href="/sign-up?redirect_url=%2Fdashboard" class="mt-2 block rounded-full bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white">Registrati</a>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<main class="pt-32 pb-24">
-
-  <!-- ─── Hero ─── -->
-  <section class="max-w-7xl mx-auto px-6 mb-32" aria-labelledby="security-heading">
-    <div class="flex flex-col md:flex-row items-center gap-16">
-      <div class="flex-1 space-y-8">
-        <div class="hero-animate delay-1 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-low text-primary text-xs font-bold tracking-widest uppercase">
-          <span class="material-symbols-outlined text-sm" aria-hidden="true" style="font-variation-settings:'FILL' 1;">verified_user</span>
-          Enterprise Grade Security
-        </div>
-        <h1 id="security-heading" class="hero-animate delay-2 text-5xl md:text-7xl font-black tracking-tighter text-on-surface leading-[1.1]">
-          Your wealth, <br/>
-          <span class="text-primary">fortified.</span>
-        </h1>
-        <p class="hero-animate delay-3 text-xl text-on-surface-variant leading-relaxed max-w-xl">
-          TaxArchitect employs state-of-the-art cryptographic standards to ensure your financial data remains private, secure, and entirely under your control.
-        </p>
-        <div class="hero-animate delay-3 flex flex-wrap gap-4 pt-4">
-          <div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-surface-container-lowest border border-outline-variant/15 ink-shadow">
-            <span class="material-symbols-outlined text-primary" aria-hidden="true" style="font-variation-settings:'FILL' 1;">lock</span>
-            <span class="text-sm font-semibold">AES-256 Encrypted</span>
-          </div>
-          <div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-surface-container-lowest border border-outline-variant/15 ink-shadow">
-            <span class="material-symbols-outlined text-primary" aria-hidden="true" style="font-variation-settings:'FILL' 1;">gpp_good</span>
-            <span class="text-sm font-semibold">GDPR Compliant</span>
-          </div>
-        </div>
-      </div>
-      <div class="flex-1 w-full hero-animate delay-2">
-        <div class="relative aspect-square rounded-[3rem] overflow-hidden ink-shadow border border-white">
-          <img
-            alt="Abstract 3D visualization of digital security layers with glowing blue lines and translucent glass surfaces in a high-end studio lighting"
-            class="object-cover w-full h-full hover:scale-[1.04] transition-transform duration-700"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBluiPTpLV6YPvVdC4fjpqQ8jc9o3DH45LgVlCm3DdU2Qcpfb8p-7q9lpiWY6wUVzKLo88BNQ5oPCdoKckTxqZDzzBcpFryoGMNkp09dBPiaZ3wTGNY7qmhh1J535uMePUyNv8Fcdoun6PbvKLAVkegTZXurMTEbBfB3gGPNK7JnWqtZI9n-LwQhS2qVgWkEESZbOCDKNDNGU3YjpCtOeasn5ziYImZvRjmH1sD3agwwcSeWxt70fuJeDvWLHdvIAWItso284ALWzxw"
-          />
-          <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent pointer-events-none"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Bento Grid ─── -->
-  <section class="max-w-7xl mx-auto px-6 mb-32" aria-labelledby="features-heading">
-    <h2 id="features-heading" class="sr-only">Security Features</h2>
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-      <div class="md:col-span-8 bento-card bg-surface-container-low rounded-[2rem] p-10 flex flex-col justify-between min-h-[400px] reveal">
+  <main class="pt-24">
+    <section class="px-6 pb-16 pt-8">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div>
-          <span class="material-symbols-outlined text-4xl text-primary mb-6" aria-hidden="true">shield_lock</span>
-          <h3 class="text-3xl font-bold tracking-tight mb-4 text-on-surface">Non-Custodial Data Access</h3>
-          <p class="text-lg text-on-surface-variant max-w-md">We never store your master keys. Your data is encrypted locally before it ever reaches our servers, meaning even we cannot access your financial history.</p>
-        </div>
-        <div class="mt-8 flex gap-2" aria-hidden="true">
-          <div class="h-1.5 w-12 rounded-full bg-primary"></div>
-          <div class="h-1.5 w-4 rounded-full bg-outline-variant"></div>
-          <div class="h-1.5 w-4 rounded-full bg-outline-variant"></div>
-        </div>
-      </div>
-
-      <div class="md:col-span-4 bento-card bg-surface-container-highest rounded-[2rem] p-10 flex flex-col items-center text-center justify-center space-y-6 reveal" style="transition-delay:0.08s">
-        <div class="w-16 h-16 rounded-full primary-gradient flex items-center justify-center text-white shadow-xl">
-          <span class="material-symbols-outlined text-3xl" aria-hidden="true">vpn_key</span>
-        </div>
-        <h4 class="text-xl font-bold">Hardware-Level Encryption</h4>
-        <p class="text-sm text-on-surface-variant">Secure Enclave integration for mobile biometric authentication.</p>
-      </div>
-
-      <div class="md:col-span-4 bento-card bg-white border border-outline-variant/10 rounded-[2rem] p-10 ink-shadow flex flex-col justify-between reveal" style="transition-delay:0.16s">
-        <div>
-          <h4 class="text-xl font-bold leading-tight">SOC 2 Type II<br/>Certified Infrastructure</h4>
-          <p class="text-sm text-on-surface-variant mt-4">Continuous auditing and penetration testing to ensure zero-vulnerability environments.</p>
-        </div>
-        <span class="material-symbols-outlined text-primary self-end text-3xl" aria-hidden="true">workspace_premium</span>
-      </div>
-
-      <div class="md:col-span-8 bento-card relative rounded-[2rem] overflow-hidden min-h-[300px] flex items-end p-10 reveal" style="transition-delay:0.08s">
-        <img
-          alt="Modern clean server room corridor with glowing blue LED lights and brushed metallic surfaces in a professional data center"
-          class="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0DJ37rx2zUR_m0D75O5MsRx63_paWTaXWjs1rBewVUP5BjSiLorr3UwOX_MsCjOyVJ_j4cMFGmEBz6ANwHfwQXVwFBzkbNlPn5dCXAKqRZoCPP8v8_G8q5sc77NUVAbW-AkT-Vf8h9jqFkF7aFkgNkoepFZisY8J8IOHjLI2tdzpcg_HWjdResz-S9DiCjGAh4Zv2z9YltTVrqH8sTpcUwpxZgIL4hILJQ2PckJ1p6Pfyl8NcecagrtDSGM7mv7UyaPLVv38908K7"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-        <div class="relative z-10 text-white">
-          <h4 class="text-2xl font-bold mb-2">Global Redundancy</h4>
-          <p class="text-slate-300 max-w-md">Distributed architecture across multiple secure zones ensures your reports are always accessible and never lost.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Detailed Protocols ─── -->
-  <section class="bg-surface-container-low py-32" aria-labelledby="protocols-heading">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-20 reveal">
-        <h2 id="protocols-heading" class="text-4xl font-black tracking-tight mb-4">Our Security Protocols</h2>
-        <div class="w-20 h-1 bg-primary mx-auto rounded-full" aria-hidden="true"></div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="space-y-6 group reveal">
-          <div class="flex items-center justify-center w-12 h-12 rounded-2xl bg-white ink-shadow group-hover:bg-primary transition-colors duration-300">
-            <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300" aria-hidden="true">encrypted</span>
+          <span class="inline-flex rounded-full bg-emerald-100 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-800">Accesso unificato e gestione dati</span>
+          <h1 class="mt-8 max-w-4xl text-5xl font-black tracking-tight text-slate-900 md:text-7xl md:leading-[0.95]">Trading Fiscale opera dentro un ecosistema unico.</h1>
+          <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">Registrazione con Clerk, dati applicativi su Supabase e accesso dalla dashboard BCS AI Suite: meno frammentazione, piu controllo operativo sul percorso dell'utente.</p>
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="/sign-up?redirect_url=%2Fdashboard" class="hero-gradient inline-flex items-center justify-center rounded-full px-8 py-4 text-lg font-semibold text-white soft-shadow">Registrati ed entra in dashboard</a>
+            <a href="../how_it_works_cupertino_premium/code.html" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-semibold text-slate-900 soft-shadow">Vedi il flusso operativo</a>
           </div>
-          <h5 class="text-xl font-bold">End-to-End Encryption</h5>
-          <p class="text-on-surface-variant leading-relaxed">Every byte of data is protected using AES-256 bit encryption at rest and TLS 1.3 in transit. We treat your privacy as a non-negotiable right.</p>
-        </div>
-        <div class="space-y-6 group reveal" style="transition-delay:0.08s">
-          <div class="flex items-center justify-center w-12 h-12 rounded-2xl bg-white ink-shadow group-hover:bg-primary transition-colors duration-300">
-            <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300" aria-hidden="true">fingerprint</span>
+          <div class="mt-10 rounded-[2rem] bg-white/85 p-6 soft-shadow">
+            <div class="flex items-center gap-3 text-sm font-bold uppercase tracking-[0.16em] text-slate-900">
+              <span class="material-symbols-outlined text-emerald-700">visibility_lock</span>
+              Cosa dichiariamo qui
+            </div>
+            <p class="mt-3 max-w-xl text-sm leading-7 text-slate-600">Parliamo del flusso e dell'architettura che la repo rende visibili. Non usiamo certificazioni, badge o claim esterni non confermati.</p>
           </div>
-          <h5 class="text-xl font-bold">Multi-Factor Auth</h5>
-          <p class="text-on-surface-variant leading-relaxed">Robust 2FA support including hardware keys (YubiKey), biometric passkeys, and time-based codes to prevent unauthorized access.</p>
         </div>
-        <div class="space-y-6 group reveal" style="transition-delay:0.16s">
-          <div class="flex items-center justify-center w-12 h-12 rounded-2xl bg-white ink-shadow group-hover:bg-primary transition-colors duration-300">
-            <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300" aria-hidden="true">policy</span>
+        <div class="relative">
+          <div class="absolute -right-8 top-8 h-44 w-44 rounded-full bg-emerald-200/70 blur-3xl"></div>
+          <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 soft-shadow">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn5pUiCe7l-8Y40DkPp8GvS0r3zDkH0X8w8b6vK4vKnG2K3Jd5jYb8S0nEZlLwtN3TFV0mDyO3X0NejYMYeP2kuP7fY1oS1hiR0y9SPrM1GNlLjJfvsjhpjOw0jUYR2k63n7n5hL4k4aA4ARqN3fkCLP0i5zjGBbx2iD8Yz9tR2e4yhfGgUPiM5R4t77M4o9n73p0J3wN-H49v7n4a9xGQ3jL9j" alt="Interfaccia con pannelli dati e protezione accessi" class="h-full w-full object-cover opacity-90" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-8 text-white">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">BCS AI Suite</p>
+              <p class="mt-3 max-w-md text-lg leading-7 text-slate-200">Un account solo, dashboard unica e workspace dedicati riducono passaggi sparsi e rendono piu leggibile il percorso di accesso all'app.</p>
+            </div>
           </div>
-          <h5 class="text-xl font-bold">Privacy First</h5>
-          <p class="text-on-surface-variant leading-relaxed">Full compliance with GDPR and CCPA. We provide tools for users to export or permanently delete their entire data history with a single click.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-100 px-6 py-20">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Punti reali della piattaforma</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">Sicurezza narrativa, prima ancora che tecnica.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">La pagina chiarisce chi gestisce accesso, dove si aggancia il dato applicativo e come l'utente raggiunge Trading Fiscale dentro la suite, senza raccontare un prodotto diverso da quello esistente.</p>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article class="reveal rounded-[2rem] bg-white p-8 soft-shadow">
+            <span class="material-symbols-outlined text-4xl text-emerald-700">badge</span>
+            <h3 class="mt-6 text-2xl font-bold text-slate-900">Identita e accesso</h3>
+            <p class="mt-3 text-base leading-7 text-slate-600">L'ingresso alla suite passa dal progetto Clerk unificato. Questo permette login coerente e meno frizioni tra landing, dashboard e workspace.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-white p-8 soft-shadow">
+            <span class="material-symbols-outlined text-4xl text-emerald-700">database</span>
+            <h3 class="mt-6 text-2xl font-bold text-slate-900">Dati applicativi</h3>
+            <p class="mt-3 text-base leading-7 text-slate-600">La suite usa Supabase per la parte dati applicativa visibile in repo. Il messaggio pubblico resta sobrio: stack chiaro, promesse prudenti.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-white p-8 soft-shadow">
+            <span class="material-symbols-outlined text-4xl text-emerald-700">dashboard</span>
+            <h3 class="mt-6 text-2xl font-bold text-slate-900">Dashboard centrale</h3>
+            <p class="mt-3 text-base leading-7 text-slate-600">Trading Fiscale non richiede un portale separato. L'utente entra in dashboard, attiva l'app e accede al proprio workspace dedicato.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-slate-900 p-8 text-white soft-shadow">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">Regola editoriale</p>
+            <p class="mt-5 text-3xl font-black tracking-tight">Zero claim inventati.</p>
+            <p class="mt-4 text-base leading-7 text-slate-300">Niente SOC 2, niente compliance proclamata, niente numeri globali. Solo il flusso reale che l'utente incontra nella suite.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-6 py-20">
+      <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="reveal rounded-[2.25rem] bg-white p-8 soft-shadow md:p-10">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Nel pratico</p>
+          <h2 class="mt-4 text-3xl font-black tracking-tight text-slate-900 md:text-4xl">Cosa vede davvero l'utente.</h2>
+          <ul class="mt-8 space-y-5 text-base leading-7 text-slate-600">
+            <li class="flex gap-3"><span class="material-symbols-outlined mt-1 text-emerald-700">check_circle</span><span>Si registra oppure accede con il flusso unificato della suite.</span></li>
+            <li class="flex gap-3"><span class="material-symbols-outlined mt-1 text-emerald-700">check_circle</span><span>Entra in dashboard e gestisce l'acquisto dell'app nello stesso ambiente delle altre soluzioni BCS AI Suite.</span></li>
+            <li class="flex gap-3"><span class="material-symbols-outlined mt-1 text-emerald-700">check_circle</span><span>Raggiunge il workspace Trading Fiscale, carica il report HTML MetaTrader 4/5 e lavora sul proprio anno fiscale.</span></li>
+            <li class="flex gap-3"><span class="material-symbols-outlined mt-1 text-emerald-700">check_circle</span><span>Trova storico report e download coerenti con il piano attivo.</span></li>
+          </ul>
+        </div>
+        <div class="reveal rounded-[2.25rem] bg-slate-900 p-8 text-white soft-shadow md:p-10">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">Microcopy di fiducia</p>
+          <h2 class="mt-4 text-3xl font-black tracking-tight md:text-4xl">Una pagina sicurezza che accompagna, non gonfia.</h2>
+          <div class="mt-8 grid gap-5 md:grid-cols-2">
+            <div class="rounded-[1.75rem] bg-white/10 p-6">
+              <p class="text-sm font-semibold text-white">Accesso centralizzato</p>
+              <p class="mt-3 text-sm leading-7 text-slate-300">Un punto di ingresso unico e piu semplice da capire rispetto a siti, account e portali scollegati.</p>
+            </div>
+            <div class="rounded-[1.75rem] bg-white/10 p-6">
+              <p class="text-sm font-semibold text-white">Messaggio sobrio</p>
+              <p class="mt-3 text-sm leading-7 text-slate-300">Il copy evita promesse assolute e preferisce spiegare processo, ruoli e flusso operativo.</p>
+            </div>
+            <div class="rounded-[1.75rem] bg-white/10 p-6">
+              <p class="text-sm font-semibold text-white">Contesto coerente</p>
+              <p class="mt-3 text-sm leading-7 text-slate-300">Landing, dashboard e workspace raccontano la stessa storia, senza cambiare funnel a meta percorso.</p>
+            </div>
+            <div class="rounded-[1.75rem] bg-white/10 p-6">
+              <p class="text-sm font-semibold text-white">Supporto come guida</p>
+              <p class="mt-3 text-sm leading-7 text-slate-300">Se qualcosa non e chiaro, la pagina Assistenza resta il punto di contatto per onboarding e dubbi operativi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-6 py-20">
+      <div class="hero-gradient mx-auto max-w-6xl overflow-hidden rounded-[2.75rem] px-8 py-14 text-center text-white soft-shadow md:px-16 md:py-20">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-100">Call to action</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight md:text-6xl">Accedi alla suite e attiva Trading Fiscale dal percorso corretto.</h2>
+        <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-emerald-50">Registrazione, dashboard, acquisto e workspace convivono nello stesso ecosistema. La sicurezza del messaggio parte da qui.</p>
+        <div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+          <a href="/sign-up?redirect_url=%2Fdashboard" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-semibold text-slate-900">Registrati ora</a>
+          <a href="../pricing_cupertino_premium/code.html" class="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-4 text-lg font-semibold text-white">Vai ai prezzi</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white px-6 py-14">
+    <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <p class="text-xl font-black tracking-tight text-slate-900">Trading Fiscale</p>
+        <p class="mt-3 max-w-md text-sm leading-7 text-slate-600">Modulo di BCS AI Suite dedicato a chi lavora su report MetaTrader 4/5 e vuole arrivare a un output fiscale piu ordinato, dentro un funnel coerente e senza pagine scollegate.</p>
+        <p class="mt-4 text-xs text-slate-500">&copy; 2026 Trading Fiscale in BCS AI Suite.</p>
+      </div>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Prodotto</p>
+        <div class="mt-4 space-y-3 text-sm text-slate-600">
+          <a href="../product_landing_cupertino_premium/code.html" class="block hover:text-slate-900">Funzionalita</a>
+          <a href="../how_it_works_cupertino_premium/code.html" class="block hover:text-slate-900">Come funziona</a>
+          <a href="../pricing_cupertino_premium/code.html" class="block hover:text-slate-900">Piani e prezzi</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Suite</p>
+        <div class="mt-4 space-y-3 text-sm text-slate-600">
+          <a href="/dashboard" class="block hover:text-slate-900">Dashboard</a>
+          <a href="/workspace/trading" class="block hover:text-slate-900">Workspace Trading</a>
+          <a href="/privacy" class="block hover:text-slate-900">Cookie e dati</a>
+          <a href="/termini" class="block hover:text-slate-900">Termini</a>
         </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- ─── Certifications ─── -->
-  <section class="py-24 max-w-7xl mx-auto px-6" aria-label="Security certifications">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-12 opacity-60 grayscale reveal">
-      <div class="text-center">
-        <span class="material-symbols-outlined text-4xl mb-2" aria-hidden="true">security</span>
-        <p class="text-xs font-bold tracking-widest uppercase">SOC 2 Type II</p>
-      </div>
-      <div class="text-center">
-        <span class="material-symbols-outlined text-4xl mb-2" aria-hidden="true">assignment_turned_in</span>
-        <p class="text-xs font-bold tracking-widest uppercase">GDPR Certified</p>
-      </div>
-      <div class="text-center">
-        <span class="material-symbols-outlined text-4xl mb-2" aria-hidden="true">account_balance</span>
-        <p class="text-xs font-bold tracking-widest uppercase">FINRA Compliant</p>
-      </div>
-      <div class="text-center">
-        <span class="material-symbols-outlined text-4xl mb-2" aria-hidden="true">lock_open</span>
-        <p class="text-xs font-bold tracking-widest uppercase">OWASP Top 10 Protected</p>
-      </div>
-    </div>
-  </section>
+  <script>
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
 
-  <!-- ─── CTA ─── -->
-  <section class="max-w-5xl mx-auto px-6 mb-12">
-    <div class="primary-gradient rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden reveal">
-      <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-      <div class="relative z-10 space-y-8">
-        <h2 class="text-3xl md:text-5xl font-black tracking-tighter">Ready to secure your future?</h2>
-        <p class="text-white/80 text-lg max-w-xl mx-auto font-medium">Join 50,000+ traders who trust TaxArchitect with their most sensitive financial calculations.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="../pricing_cupertino_premium/code.html" class="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-surface-bright transition-colors hover:scale-105 active:scale-100 text-center">Start Free Trial</a>
-          <a href="../contact_cupertino_premium/code.html" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-colors text-center">Talk to Sales</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
 
-</main>
-
-<!-- ─── Footer ─── -->
-<footer class="w-full border-t border-slate-200 bg-slate-50" aria-label="Site footer">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
-    <div class="space-y-4">
-      <a href="../home_page_cupertino_premium/code.html" class="text-lg font-black text-slate-900 hover:text-primary transition-colors inline-block">TaxArchitect</a>
-      <p class="text-xs text-slate-500 max-w-[200px]">© 2024 TaxArchitect. Premium Tax Reporting for Global Traders.</p>
-    </div>
-    <div class="space-y-4">
-      <h6 class="text-xs font-bold tracking-widest uppercase text-on-surface">Legal</h6>
-      <div class="flex flex-col space-y-2">
-        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Privacy Policy</a>
-        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a>
-        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="#">Cookie Settings</a>
-      </div>
-    </div>
-    <div class="space-y-4">
-      <h6 class="text-xs font-bold tracking-widest uppercase text-on-surface">Resources</h6>
-      <div class="flex flex-col space-y-2">
-        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../product_landing_cupertino_premium/code.html">RW Forms Guide</a>
-        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../product_landing_cupertino_premium/code.html">RT Reporting</a>
-        <a class="text-xs text-slate-500 hover:text-blue-600 underline-offset-4 hover:underline transition-all" href="../how_it_works_cupertino_premium/code.html">How it Works</a>
-      </div>
-    </div>
-    <div class="space-y-4">
-      <h6 class="text-xs font-bold tracking-widest uppercase text-on-surface">Connect</h6>
-      <div class="flex gap-4">
-        <a href="../contact_cupertino_premium/code.html" class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" aria-label="Email us">
-          <span class="material-symbols-outlined text-sm" aria-hidden="true">mail</span>
-        </a>
-        <button class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" aria-label="Share TaxArchitect">
-          <span class="material-symbols-outlined text-sm" aria-hidden="true">share</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const btn = document.getElementById('hamburger-btn');
-  const menu = document.getElementById('mobile-menu');
-  const icon = document.getElementById('hamburger-icon');
-  btn.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded', isOpen);
-    menu.setAttribute('aria-hidden', !isOpen);
-    icon.textContent = isOpen ? 'close' : 'menu';
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = (i % 4) * 0.07 + 's';
-    observer.observe(el);
-  });
-</script>
+    document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+  </script>
 </body>
 </html>
