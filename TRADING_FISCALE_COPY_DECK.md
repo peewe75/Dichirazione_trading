@@ -35,9 +35,8 @@
 - Pro: `EUR 34,90`
 
 ## Sicurezza
-- Eyebrow: `Accesso unificato e gestione dati`
-- Headline: `Trading Fiscale opera dentro un ecosistema unico.`
-- Subheadline: `Registrazione con Clerk, dati applicativi su Supabase e accesso dalla dashboard BCS AI Suite: meno frammentazione, piu controllo operativo.`
+- Pagina rimossa dal microsito.
+- Il tema resta assorbito nel messaggio di piattaforma: Clerk condiviso, dashboard unificata e dati applicativi su Supabase.
 
 ## Contatti
 - Eyebrow: `Supporto e onboarding`
