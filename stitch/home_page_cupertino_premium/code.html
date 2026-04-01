@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dichiarazione Trading in BCS AI Suite | Report fiscali da MetaTrader 4/5</title>
+  <title>Strumenti Fiscali AI — Trading e Crypto | BCS AI Suite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -18,7 +18,7 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-    #mobile-menu.open { max-height: 420px; }
+    #mobile-menu.open { max-height: 520px; }
     .faq-answer { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.35s ease, opacity 0.25s ease; }
     .faq-item.open .faq-answer { max-height: 220px; opacity: 1; }
     .faq-item.open .faq-icon { transform: rotate(180deg); }
@@ -28,20 +28,21 @@
 <body class="selection:bg-emerald-200 selection:text-slate-900">
   <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/50 bg-white/75 glass">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="../home_page_cupertino_premium/code.html" class="leading-none" aria-label="Dichiarazione Trading Home">
-        <span class="block text-xl font-black tracking-tight text-slate-900">Dichiarazione Trading</span>
+      <a href="../home_page_cupertino_premium/code.html" class="leading-none" aria-label="Strumenti Fiscali Home">
+        <span class="block text-xl font-black tracking-tight text-slate-900">Strumenti Fiscali</span>
         <span class="block pt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">in BCS AI Suite</span>
       </a>
       <div class="hidden items-center gap-8 md:flex">
         <a href="../home_page_cupertino_premium/code.html" class="border-b-2 border-emerald-600 pb-1 text-sm font-semibold text-emerald-700">Panoramica</a>
-        <a href="../product_landing_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Prodotto</a>
+        <a href="../product_landing_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Trading</a>
+        <a href="../crypto_fiscale_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Crypto</a>
         <a href="../how_it_works_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Come funziona</a>
         <a href="../pricing_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Prezzi</a>
       </div>
       <div class="hidden items-center gap-4 md:flex">
         <a href="../contact_cupertino_premium/code.html" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Assistenza</a>
-        <a href="https://ultrabot.space/sign-in?redirect_url=https%3A%2F%2Fultrabot.space%2Fworkspace%2Ftrading" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Accedi</a>
-        <a href="https://ultrabot.space/sign-up?redirect_url=https%3A%2F%2Fultrabot.space%2Fworkspace%2Ftrading" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]">Registrati</a>
+        <a href="https://app.ultrabot.space/dashboard" class="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100">Dashboard</a>
+        <a href="https://app.ultrabot.space/sign-up?redirect_url=%2Fdashboard" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]">Registrati</a>
       </div>
       <button id="menu-button" class="rounded-full p-2 text-slate-700 md:hidden" aria-label="Apri menu">
         <span class="material-symbols-outlined">menu</span>
@@ -50,12 +51,13 @@
     <div id="mobile-menu" class="md:hidden">
       <div class="space-y-1 border-t border-slate-200 px-6 pb-4 pt-3">
         <a href="../home_page_cupertino_premium/code.html" class="block rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">Panoramica</a>
-        <a href="../product_landing_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Prodotto</a>
+        <a href="../product_landing_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Trading</a>
+        <a href="../crypto_fiscale_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Crypto</a>
         <a href="../how_it_works_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Come funziona</a>
         <a href="../pricing_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Prezzi</a>
         <a href="../contact_cupertino_premium/code.html" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Assistenza</a>
-        <a href="https://ultrabot.space/sign-in?redirect_url=https%3A%2F%2Fultrabot.space%2Fworkspace%2Ftrading" class="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100">Accedi</a>
-        <a href="https://ultrabot.space/sign-up?redirect_url=https%3A%2F%2Fultrabot.space%2Fworkspace%2Ftrading" class="mt-2 block rounded-full bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white">Registrati</a>
+        <a href="https://app.ultrabot.space/dashboard" class="mt-2 block rounded-full border border-slate-300 px-4 py-3 text-center text-sm font-semibold text-slate-700">Dashboard</a>
+        <a href="https://app.ultrabot.space/sign-up?redirect_url=%2Fdashboard" class="block rounded-full bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white">Registrati</a>
       </div>
     </div>
   </nav>
@@ -64,31 +66,29 @@
     <section class="px-6 pb-16 pt-8">
       <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
-          <span class="inline-flex rounded-full bg-emerald-100 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-800">Modulo fiscale in BCS AI Suite</span>
-          <h1 class="mt-8 max-w-4xl text-5xl font-black tracking-tight text-slate-900 md:text-7xl md:leading-[0.95]">Dichiarazione Trading per report MetaTrader chiari, pronti da usare.</h1>
-          <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">Registrati nella suite, entra in dashboard, attiva l'app e trasforma un export HTML MetaTrader 4/5 in un riepilogo fiscale ordinato con PDF e facsimili RW/RT.</p>
+          <span class="inline-flex rounded-full bg-emerald-100 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-800">Strumenti fiscali in BCS AI Suite</span>
+          <h1 class="mt-8 max-w-4xl text-5xl font-black tracking-tight text-slate-900 md:text-7xl md:leading-[0.95]">Trading e Crypto.<br /><span class="text-emerald-700">Una sola piattaforma fiscale.</span></h1>
+          <p class="mt-8 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">Dal report del broker ai quadri fiscali compilati. Due strumenti specializzati, un unico ecosistema: registrazione con Clerk, acquisti Stripe e workspace operativi dentro BCS AI Suite.</p>
           <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a href="https://ultrabot.space/sign-up?redirect_url=https%3A%2F%2Fultrabot.space%2Fworkspace%2Ftrading" class="hero-gradient inline-flex items-center justify-center rounded-full px-8 py-4 text-lg font-semibold text-white soft-shadow">Registrati ed entra in dashboard</a>
-            <a href="https://ultrabot.space/workspace/trading" class="inline-flex items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 px-8 py-4 text-lg font-semibold text-emerald-900 soft-shadow">Apri Workspace</a>
+            <a href="https://app.ultrabot.space/sign-up?redirect_url=%2Fdashboard" class="hero-gradient inline-flex items-center justify-center rounded-full px-8 py-4 text-lg font-semibold text-white soft-shadow">Registrati ed entra in dashboard</a>
             <a href="../how_it_works_cupertino_premium/code.html" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-semibold text-slate-900 soft-shadow">Scopri come funziona</a>
           </div>
-          <p class="mt-4 text-sm font-medium text-slate-500">Se sei gia autenticato in BCS AI Suite, puoi entrare direttamente nel workspace Trading.</p>
           <div class="mt-10 rounded-[2rem] bg-white/85 p-6 soft-shadow">
             <div class="flex items-center gap-3 text-sm font-bold uppercase tracking-[0.16em] text-slate-900">
               <span class="material-symbols-outlined text-emerald-700">verified</span>
               Flusso reale
             </div>
-            <p class="mt-3 max-w-xl text-sm leading-7 text-slate-600">Accesso unificato con Clerk, acquisto dell'app dalla dashboard BCS AI Suite e area operativa dedicata. Nessuna promessa fuori dal prodotto, solo il percorso che esiste davvero.</p>
+            <p class="mt-3 max-w-xl text-sm leading-7 text-slate-600">Accesso unificato con Clerk, acquisti gestiti da Stripe e workspace dedicati. Dalla dashboard attivi i piani e accedi agli strumenti operativi.</p>
           </div>
         </div>
         <div class="relative">
           <div class="absolute -left-10 top-10 h-40 w-40 rounded-full bg-emerald-200/70 blur-3xl"></div>
           <div class="relative overflow-hidden rounded-[2.5rem] bg-slate-900 soft-shadow">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuByCKqGz7SdDWbDlzFtaP1oevqNm3qiNHju_yM245YVIseM7-3HSNy40IbnNM0zucxJdji2eCiZ2h4Xupb2TQnDYtJGF0qFBh4PYjpdHlhQyPu003dkN-yd9YoDs-OEje5twqnJCYJiOhNozJG9GGzp6xyGSScfVBp8oTcmDhze2I_lUqcYqdnWRCX4ADlUSbos9H1TTh7nsc-tTXnnb8KnRPbVeo_51x6FMy_NaaZ2l8UE_Nj76eA01lODh6fGDo93qRKARK2TXiIK" alt="Workspace editoriale con monitor e documenti finanziari" class="h-full w-full object-cover opacity-90" />
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuByCKqGz7SdDWbDlzFtaP1oevqNm3qiNHju_yM245YVIseM7-3HSNy40IbnNM0zucxJdji2eCiZ2h4Xupb2TQnDYtJGF0qFBh4PYjpdHlhQyPu003dkN-yd9YoDs-OEje5twqnJCYJiOhNozJG9GGzp6xyGSScfVBp8oTcmDhze2I_lUqcYqdnWRCX4ADlUSbos9H1TTh7nsc-tTXnnb8KnRPbVeo_51x6FMy_NaaZ2l8UE_Nj76eA01lODh6fGDo93qRKARK2TXiIK" alt="Dashboard fiscale con strumenti trading e crypto" class="h-full w-full object-cover opacity-90" />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/20 to-transparent"></div>
             <div class="absolute inset-x-0 bottom-0 p-8 text-white">
               <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">Dentro la suite</p>
-              <p class="mt-3 max-w-md text-lg leading-7 text-slate-200">Un account solo per accedere alla dashboard, attivare i moduli e aprire il workspace di Dichiarazione Trading con il percorso corretto.</p>
+              <p class="mt-3 max-w-md text-lg leading-7 text-slate-200">Un account solo per dashboard, acquisti Stripe e workspace operativi di Trading e Crypto Fiscale.</p>
             </div>
           </div>
         </div>
@@ -98,122 +98,172 @@
     <section class="bg-slate-100 px-6 py-20">
       <div class="mx-auto max-w-7xl">
         <div class="reveal max-w-3xl">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Dentro il flusso giusto</p>
-          <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">L'app non vive separata dal resto di BCS AI Suite.</h2>
-          <p class="mt-5 text-lg leading-8 text-slate-600">Dichiarazione Trading condivide accesso, acquisto e uso con le altre app della piattaforma. Il sito dedicato racconta lo stesso funnel che l'utente trova davvero nella suite.</p>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Due strumenti, una dashboard</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">Trading fiscale e dichiarazione crypto, nello stesso ecosistema.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">Registrati una volta, accedi alla dashboard BCS AI Suite e attiva gli strumenti che ti servono. Acquisti gestiti da Stripe, workspace operativi pronti all'uso.</p>
         </div>
-        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
           <article class="reveal rounded-[2rem] bg-white p-8 soft-shadow">
-            <span class="material-symbols-outlined text-4xl text-emerald-700">hub</span>
-            <h3 class="mt-6 text-2xl font-bold text-slate-900">Ingresso unificato</h3>
-            <p class="mt-3 text-base leading-7 text-slate-600">Registrazione e login passano da Clerk. Una volta dentro BCS AI Suite trovi dashboard, app attive e storico nello stesso ambiente.</p>
+            <div class="flex items-center gap-4">
+              <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-2xl font-black text-emerald-700">TF</span>
+              <div>
+                <h3 class="text-2xl font-bold text-slate-900">Dichiarazione Trading</h3>
+                <p class="text-sm font-medium text-emerald-700">Forex · MetaTrader 4/5</p>
+              </div>
+            </div>
+            <p class="mt-5 text-base leading-7 text-slate-600">Carica il report HTML del tuo broker MetaTrader e ottieni un riepilogo fiscale professionale con PDF e facsimili RW/RT. Anno fiscale, tipo conto e storico nel workspace dedicato.</p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">Import HTML MT4/5</span>
+              <span class="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">PDF riepilogativo</span>
+              <span class="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">Facsimili RW/RT</span>
+              <span class="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">Storico report</span>
+            </div>
+            <a href="../product_landing_cupertino_premium/code.html" class="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-700">
+              Scopri Trading
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
           </article>
-          <article class="reveal rounded-[2rem] bg-slate-900 p-8 text-white soft-shadow">
-            <p class="text-5xl font-black tracking-tight">1 account</p>
-            <p class="mt-4 text-lg leading-8 text-slate-300">Accesso unico a dashboard, acquisti e moduli della suite, compreso Dichiarazione Trading.</p>
-          </article>
+
           <article class="reveal rounded-[2rem] bg-white p-8 soft-shadow">
-            <span class="material-symbols-outlined text-4xl text-emerald-700">description</span>
-            <h3 class="mt-6 text-2xl font-bold text-slate-900">Output fiscale</h3>
-            <p class="mt-3 text-base leading-7 text-slate-600">L'app trasforma il report HTML MetaTrader in PDF riepilogativo, storico report e facsimili RW/RT quando previsti.</p>
-          </article>
-          <article class="reveal rounded-[2rem] bg-emerald-50 p-8 soft-shadow">
-            <span class="material-symbols-outlined text-4xl text-emerald-700">inventory_2</span>
-            <h3 class="mt-6 text-2xl font-bold text-slate-900">MetaTrader 4/5</h3>
-            <p class="mt-3 text-base leading-7 text-slate-600">Il flusso e pensato per report HTML esportati da MetaTrader, senza raccontare funzioni che il prodotto non promette.</p>
+            <div class="flex items-center gap-4">
+              <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-2xl font-black text-amber-700">CF</span>
+              <div>
+                <h3 class="text-2xl font-bold text-slate-900">Crypto Fiscale</h3>
+                <p class="text-sm font-medium text-amber-700">Exchange · Binance, Bybit</p>
+              </div>
+            </div>
+            <p class="mt-5 text-base leading-7 text-slate-600">Carica i report HTML dei tuoi exchange e ottieni i quadri RW/RT compilati con calcolo LIFO e normativa 2025/2026. Multi-exchange, export PDF e XLSX.</p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700">Binance, Bybit</span>
+              <span class="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700">Calcolo LIFO</span>
+              <span class="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700">Quadri RW/RT</span>
+              <span class="rounded-full bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700">Normativa 2025/26</span>
+            </div>
+            <a href="../crypto_fiscale_cupertino_premium/code.html" class="mt-6 inline-flex items-center gap-2 rounded-full bg-amber-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-700">
+              Scopri Crypto
+              <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
           </article>
         </div>
       </div>
     </section>
 
     <section class="px-6 py-20">
-      <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.1fr]">
-        <div class="reveal rounded-[2.5rem] bg-slate-900 p-10 text-white soft-shadow">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">Perche usarlo</p>
-          <h2 class="mt-4 text-4xl font-black tracking-tight md:text-5xl">Il vantaggio non e solo il calcolo.</h2>
-          <p class="mt-5 max-w-xl text-lg leading-8 text-slate-300">Il vero valore e avere un percorso ordinato: registrazione, dashboard, attivazione app, upload e storico nello stesso ecosistema.</p>
-          <div class="mt-10 grid gap-4">
-            <div class="rounded-[1.5rem] bg-white/8 p-5">
-              <p class="text-xl font-bold">Contesto italiano</p>
-              <p class="mt-2 text-sm leading-7 text-slate-300">L'app parla il linguaggio di chi deve arrivare a un output fiscale leggibile, non a una vetrina generica sul trading.</p>
-            </div>
-            <div class="rounded-[1.5rem] bg-white/8 p-5">
-              <p class="text-xl font-bold">Funzioni concrete</p>
-              <p class="mt-2 text-sm leading-7 text-slate-300">Anno fiscale, tipo conto standard o centesimale, PDF riepilogativo, facsimili RW/RT e storico coerente con il piano attivo.</p>
-            </div>
-            <div class="rounded-[1.5rem] bg-white/8 p-5">
-              <p class="text-xl font-bold">Piani reali</p>
-              <p class="mt-2 text-sm leading-7 text-slate-300">Tre livelli chiari: Base, Standard e Pro. Senza numeri inventati e senza listini in dollari fuori contesto.</p>
-            </div>
-          </div>
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal text-center max-w-3xl mx-auto">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Perche scegliere gli strumenti fiscali BCS AI</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">Un ecosistema unificato per la tua dichiarazione.</h2>
         </div>
-        <div class="reveal">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Per chi e pensata</p>
-          <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">Quattro casi d'uso ricorrenti.</h2>
-          <div class="mt-8 grid gap-5 sm:grid-cols-2">
-            <article class="rounded-[2rem] bg-white p-6 soft-shadow">
-              <h3 class="text-lg font-bold text-slate-900">Trader retail</h3>
-              <p class="mt-3 text-sm leading-7 text-slate-600">Per chi vuole partire da un export MetaTrader e arrivare a un riepilogo fiscale ordinato.</p>
-            </article>
-            <article class="rounded-[2rem] bg-white p-6 soft-shadow">
-              <h3 class="text-lg font-bold text-slate-900">Piu conti nello stesso anno</h3>
-              <p class="mt-3 text-sm leading-7 text-slate-600">Per chi deve gestire piu report nello stesso periodo senza uscire dalla dashboard della suite.</p>
-            </article>
-            <article class="rounded-[2rem] bg-white p-6 soft-shadow">
-              <h3 class="text-lg font-bold text-slate-900">Storico da recuperare</h3>
-              <p class="mt-3 text-sm leading-7 text-slate-600">Per chi ha bisogno di aprire anni precedenti e mantenere lo storico nel workspace dedicato.</p>
-            </article>
-            <article class="rounded-[2rem] bg-white p-6 soft-shadow">
-              <h3 class="text-lg font-bold text-slate-900">Supporto al commercialista</h3>
-              <p class="mt-3 text-sm leading-7 text-slate-600">Per chi vuole consegnare PDF e materiale fiscale piu leggibile rispetto al report grezzo del broker.</p>
-            </article>
-          </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article class="reveal rounded-[2rem] bg-white p-8 soft-shadow">
+            <span class="material-symbols-outlined text-4xl text-emerald-700">hub</span>
+            <h3 class="mt-6 text-2xl font-bold text-slate-900">Accesso unificato</h3>
+            <p class="mt-3 text-base leading-7 text-slate-600">Un solo account Clerk per tutti gli strumenti. Dashboard condivisa e gestione piani centralizzata.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-slate-900 p-8 text-white soft-shadow">
+            <p class="text-5xl font-black tracking-tight">Stripe</p>
+            <p class="mt-4 text-lg leading-8 text-slate-300">Acquisti sicuri gestiti da Stripe. Attiva, upgrade o disdici i piani direttamente dalla dashboard.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-white p-8 soft-shadow">
+            <span class="material-symbols-outlined text-4xl text-emerald-700">description</span>
+            <h3 class="mt-6 text-2xl font-bold text-slate-900">Output professionali</h3>
+            <p class="mt-3 text-base leading-7 text-slate-600">PDF riepilogativi, facsimili RW/RT e storico completo pronti per la dichiarazione dei redditi.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-emerald-50 p-8 soft-shadow">
+            <span class="material-symbols-outlined text-4xl text-emerald-700">verified_user</span>
+            <h3 class="mt-6 text-2xl font-bold text-slate-900">Normativa italiana</h3>
+            <p class="mt-3 text-base leading-7 text-slate-600">Aggiornati alle ultime disposizioni fiscali italiane. Calcolo plusvalenze e monitoraggio fiscale.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="bg-slate-100 px-6 py-20">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Per chi e pensata</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900 md:text-5xl">Casi d'uso ricorrenti.</h2>
+        </div>
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="reveal rounded-[2rem] bg-white p-6 soft-shadow">
+            <h3 class="text-lg font-bold text-slate-900">Trader Forex</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Da export MetaTrader a report fiscale ordinato. Anno fiscale, tipo conto e facsimili RW/RT.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-white p-6 soft-shadow">
+            <h3 class="text-lg font-bold text-slate-900">Trader Crypto</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Da report exchange a quadri fiscali compilati. Calcolo LIFO e normativa aggiornata.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-white p-6 soft-shadow">
+            <h3 class="text-lg font-bold text-slate-900">Piu conti / exchange</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Gestisci piu fonti nello stesso anno fiscale senza uscire dalla dashboard della suite.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-white p-6 soft-shadow">
+            <h3 class="text-lg font-bold text-slate-900">Storico da recuperare</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Apri anni precedenti e mantieni lo storico nei workspace dedicati.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-white p-6 soft-shadow">
+            <h3 class="text-lg font-bold text-slate-900">Supporto al commercialista</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Consegna PDF e materiale fiscale piu leggibile rispetto ai report grezzi di broker ed exchange.</p>
+          </article>
+          <article class="reveal rounded-[2rem] bg-emerald-50 p-6 soft-shadow">
+            <h3 class="text-lg font-bold text-slate-900">Professionisti fiscali</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">Commercialisti e consulenti che gestiscono dichiarazioni per piu clienti con strumenti strutturati.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-6 py-20">
       <div class="mx-auto max-w-4xl">
         <div class="reveal text-center">
           <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">FAQ</p>
           <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-900">Domande frequenti</h2>
-          <p class="mt-5 text-lg leading-8 text-slate-600">Le risposte piu utili per capire il flusso reale dell'app dentro la suite.</p>
+          <p class="mt-5 text-lg leading-8 text-slate-600">Le risposte piu utili per capire il flusso reale degli strumenti fiscali dentro la suite.</p>
         </div>
         <div class="mt-10 space-y-4">
+          <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
+            <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
+              <span class="text-lg font-bold text-slate-900">Posso usare entrambi gli strumenti con un solo account?</span>
+              <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
+            </button>
+            <div class="faq-answer">
+              <p class="pt-4 text-sm leading-7 text-slate-600">Si. Registrazione unica con Clerk, dashboard condivisa e piani attivabili separatamente per ogni strumento tramite Stripe.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
+            <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
+              <span class="text-lg font-bold text-slate-900">Come funziona il pagamento?</span>
+              <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
+            </button>
+            <div class="faq-answer">
+              <p class="pt-4 text-sm leading-7 text-slate-600">I pagamenti sono gestiti da Stripe. Dalla dashboard BCS AI Suite attivi il piano, effettui l'upgrade o il downgrade in qualsiasi momento.</p>
+            </div>
+          </div>
           <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
             <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
               <span class="text-lg font-bold text-slate-900">Che file devo caricare?</span>
               <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
             </button>
             <div class="faq-answer">
-              <p class="pt-4 text-sm leading-7 text-slate-600">Dichiarazione Trading lavora sui report HTML esportati da MetaTrader 4 o 5. Il file viene caricato dall'area operativa dopo l'attivazione dell'app.</p>
+              <p class="pt-4 text-sm leading-7 text-slate-600">Trading Fiscale lavora sui report HTML di MetaTrader 4/5. Crypto Fiscale sui report HTML degli exchange (Binance, Bybit). I file si caricano nei workspace operativi dopo l'attivazione.</p>
             </div>
           </div>
           <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
             <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
-              <span class="text-lg font-bold text-slate-900">Devo comprare l'app prima di usarla?</span>
+              <span class="text-lg font-bold text-slate-900">I quadri RW/RT sono pronti per la dichiarazione?</span>
               <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
             </button>
             <div class="faq-answer">
-              <p class="pt-4 text-sm leading-7 text-slate-600">Prima ti registri in BCS AI Suite, poi entri in dashboard e attivi Dichiarazione Trading come le altre app del catalogo. Da li accedi al workspace dedicato.</p>
+              <p class="pt-4 text-sm leading-7 text-slate-600">I facsimili generati sono conformi ai modelli ufficiali dell'Agenzia delle Entrate. Ti consigliamo comunque di farli verificare dal tuo commercialista.</p>
             </div>
           </div>
           <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
             <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
-              <span class="text-lg font-bold text-slate-900">Posso scegliere l'anno fiscale?</span>
+              <span class="text-lg font-bold text-slate-900">I miei dati sono al sicuro?</span>
               <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
             </button>
             <div class="faq-answer">
-              <p class="pt-4 text-sm leading-7 text-slate-600">Si. L'anno fiscale viene selezionato nel workspace e la disponibilita dipende dal piano attivo: Base e Standard sono piu essenziali, Pro apre lo storico completo.</p>
-            </div>
-          </div>
-          <div class="faq-item reveal rounded-[1.75rem] bg-white px-6 py-5 soft-shadow">
-            <button class="faq-trigger flex w-full items-center justify-between text-left" aria-expanded="false">
-              <span class="text-lg font-bold text-slate-900">Che cosa ottengo alla fine?</span>
-              <span class="material-symbols-outlined faq-icon text-emerald-700">expand_more</span>
-            </button>
-            <div class="faq-answer">
-              <p class="pt-4 text-sm leading-7 text-slate-600">Il risultato finale include un PDF riepilogativo, lo storico dei report nel workspace e i facsimili RW/RT previsti dal flusso dell'app.</p>
+              <p class="pt-4 text-sm leading-7 text-slate-600">Assolutamente. Architettura GDPR-compliant con dati su Supabase, crittografia e backup automatici su server europei.</p>
             </div>
           </div>
         </div>
@@ -223,12 +273,11 @@
     <section class="px-6 py-20">
       <div class="hero-gradient mx-auto max-w-6xl overflow-hidden rounded-[2.75rem] px-8 py-14 text-center text-white soft-shadow md:px-16 md:py-20">
         <p class="text-xs font-bold uppercase tracking-[0.18em] text-emerald-100">Call to action</p>
-        <h2 class="mt-4 text-4xl font-black tracking-tight md:text-6xl">Entra in BCS AI Suite e attiva Dichiarazione Trading.</h2>
-        <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-emerald-50">Registrati una volta, accedi alla dashboard e usa l'app quando ti serve, insieme alle altre della suite.</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight md:text-6xl">Entra in BCS AI Suite e attiva gli strumenti fiscali.</h2>
+        <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-emerald-50">Registrati una volta, accedi alla dashboard e usa Trading e Crypto Fiscale quando ti serve. Acquisti gestiti da Stripe.</p>
         <div class="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-          <a href="https://ultrabot.space/sign-up?redirect_url=https%3A%2F%2Fultrabot.space%2Fworkspace%2Ftrading" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-semibold text-slate-900">Registrati ora</a>
-          <a href="https://ultrabot.space/workspace/trading" class="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-8 py-4 text-lg font-semibold text-white">Apri Workspace</a>
-          <a href="../pricing_cupertino_premium/code.html" class="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-4 text-lg font-semibold text-white">Vai ai prezzi</a>
+          <a href="https://app.ultrabot.space/sign-up?redirect_url=%2Fdashboard" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-lg font-semibold text-slate-900">Registrati ora</a>
+          <a href="https://app.ultrabot.space/dashboard" class="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-4 text-lg font-semibold text-white">Vai alla dashboard</a>
         </div>
       </div>
     </section>
@@ -237,14 +286,15 @@
   <footer class="border-t border-slate-200 bg-white px-6 py-14">
     <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
       <div class="md:col-span-2">
-        <p class="text-xl font-black tracking-tight text-slate-900">Dichiarazione Trading</p>
-        <p class="mt-3 max-w-md text-sm leading-7 text-slate-600">Modulo di BCS AI Suite dedicato a chi parte da un export MetaTrader 4/5 e vuole arrivare a un output fiscale piu ordinato dentro un funnel coerente.</p>
-        <p class="mt-4 text-xs text-slate-500">&copy; 2026 Dichiarazione Trading in BCS AI Suite.</p>
+        <p class="text-xl font-black tracking-tight text-slate-900">Strumenti Fiscali</p>
+        <p class="mt-3 max-w-md text-sm leading-7 text-slate-600">Trading Fiscale e Crypto Fiscale: moduli di BCS AI Suite per chi vuole arrivare a un output fiscale ordinato partendo da broker ed exchange.</p>
+        <p class="mt-4 text-xs text-slate-500">&copy; 2026 Strumenti Fiscali in BCS AI Suite.</p>
       </div>
       <div>
-        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Prodotto</p>
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Strumenti</p>
         <div class="mt-4 space-y-3 text-sm text-slate-600">
-          <a href="../product_landing_cupertino_premium/code.html" class="block hover:text-slate-900">Funzionalita</a>
+          <a href="../product_landing_cupertino_premium/code.html" class="block hover:text-slate-900">Dichiarazione Trading</a>
+          <a href="../crypto_fiscale_cupertino_premium/code.html" class="block hover:text-slate-900">Crypto Fiscale</a>
           <a href="../how_it_works_cupertino_premium/code.html" class="block hover:text-slate-900">Come funziona</a>
           <a href="../pricing_cupertino_premium/code.html" class="block hover:text-slate-900">Piani e prezzi</a>
         </div>
@@ -252,10 +302,11 @@
       <div>
         <p class="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Suite</p>
         <div class="mt-4 space-y-3 text-sm text-slate-600">
-          <a href="https://ultrabot.space/dashboard" class="block hover:text-slate-900">Dashboard</a>
-          <a href="https://ultrabot.space/workspace/trading" class="block hover:text-slate-900">Workspace Trading</a>
-          <a href="https://ultrabot.space/privacy" class="block hover:text-slate-900">Cookie e dati</a>
-          <a href="https://ultrabot.space/termini" class="block hover:text-slate-900">Termini</a>
+          <a href="https://app.ultrabot.space/dashboard" class="block hover:text-slate-900">Dashboard</a>
+          <a href="https://app.ultrabot.space/workspace/trading" class="block hover:text-slate-900">Workspace Trading</a>
+          <a href="https://app.ultrabot.space/workspace/crypto-fiscale" class="block hover:text-slate-900">Workspace Crypto</a>
+          <a href="/privacy" class="block hover:text-slate-900">Cookie e dati</a>
+          <a href="/termini" class="block hover:text-slate-900">Termini</a>
         </div>
       </div>
     </div>
@@ -264,9 +315,7 @@
   <script>
     const menuButton = document.getElementById("menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
-    menuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-    });
+    menuButton.addEventListener("click", () => { mobileMenu.classList.toggle("open"); });
 
     document.querySelectorAll(".faq-trigger").forEach((trigger) => {
       trigger.addEventListener("click", () => {
@@ -276,22 +325,13 @@
           node.classList.remove("open");
           node.querySelector(".faq-trigger").setAttribute("aria-expanded", "false");
         });
-        if (!isOpen) {
-          item.classList.add("open");
-          trigger.setAttribute("aria-expanded", "true");
-        }
+        if (!isOpen) { item.classList.add("open"); trigger.setAttribute("aria-expanded", "true"); }
       });
     });
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
+      entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } });
     }, { threshold: 0.15 });
-
     document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
   </script>
 </body>
